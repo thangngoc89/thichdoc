@@ -8,6 +8,7 @@ const Figure = ({ author }) => {
           `
           .section {
             min-width: 100%;
+            max-width: 300px;
           }
           
           @media (min-width: 30em) {
@@ -52,7 +53,7 @@ const Figure = ({ author }) => {
 
 const FeatureFigure = () => {
   return (
-    <div className="flex flex-wrap w-100 mt4">
+    <div className="flex flex-wrap w-100 mt4 justify-between">
       {[ ...Array(12) ].map((_, i) => <Figure key={i} author={i} />)}
     </div>
   );
