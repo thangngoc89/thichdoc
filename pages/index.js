@@ -3,7 +3,7 @@ import App from "../components/App";
 
 const HomePage = () => {
   return (
-    <App>
+    <App title="Trang chủ">
       <style jsx>
         {
           `

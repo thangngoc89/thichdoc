@@ -12,13 +12,6 @@ const NavLink = ({ href, children }) => {
 const Header = () => {
   return (
     <header className="mb0 bg-white fixed top-0 left-0 w-100">
-      <style jsx>
-        {
-          `
-
-        `
-        }
-      </style>
       <div className="mw8 center flex ph4 items-center h3 f5">
         <a
           href="/"
@@ -27,10 +20,10 @@ const Header = () => {
           <Logo scale={0.25} />
           <span className="ph3">Thích đọc</span>
         </a>
-        <a className="dn-ns">
+        <a className="dn-ns flex flex-1 justify-end">
           Menu
         </a>
-        <ul className="flex-ns flex-3-ns dn flex-start list">
+        <ul className="flex-ns flex-3-ns justify-end dn flex-start list tr">
           <li className="">
             <NavLink href="/explore">Explore</NavLink>
           </li>

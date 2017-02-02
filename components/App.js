@@ -2,15 +2,13 @@ import Header from "./Header";
 import d from "../design";
 import Head from "next/head";
 
-export default ({ children }) => (
+export default ({ children, title }) => (
   <main>
     <Head>
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/tachyons/css/tachyons.min.css"
-      />
+      <link rel="stylesheet" href="/static/css/tachyons.min.css" />
+      <title>{title} | Thích đọc</title>
     </Head>
     <Header />
     {children}
@@ -33,6 +31,11 @@ export default ({ children }) => (
       }
       .flex-3 {
         flex: 3;
+      }
+      @media (min-width: 30em) {
+        .flex-3-ns {
+          flex: 3;
+        }
       }
       .flex-4 {
         flex: 3;
