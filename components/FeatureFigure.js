@@ -1,8 +1,8 @@
 import React from "react";
 
-const Figure = () => {
+const Figure = ({ author }) => {
   return (
-    <section className="flex-1 mb4 mr0 mr4-ns section">
+    <section className="flex-1 mb4 mr0 mr4-ns section bg-white ">
       <style jsx>
         {
           `
@@ -34,17 +34,18 @@ const Figure = () => {
           `
         }
       </style>
-      <article className="bg-white pa2 pa3-ns mv2 ba bb-black-80">
-        <div className="tc">
-          <img
-            src="https://source.unsplash.com/random/400x400/"
-            className="br-100 h5-l w5-l h4 w4 dib"
-            title="Photo of a kitty staring at you"
-          />
-          <h1 className="f3 mb2">Mimi W.</h1>
-          <h2 className="f5 fw4 gray mt0">CCO (Chief Cat Officer)</h2>
-        </div>
-      </article>
+      <div className="tc">
+        <img
+          src={`/static/authors/${(+author + 1).toString()}.jpg`}
+          className="w-100"
+          height="200px"
+          width="200px"
+          style={{ height: "auto" }}
+          title="Photo of a dog staring at you"
+        />
+        <h1 className="f3 mb2">Mimi W.</h1>
+        <h2 className="f5 fw4 gray mt0">CCO (Chief Cat Officer)</h2>
+      </div>
     </section>
   );
 };
@@ -52,7 +53,7 @@ const Figure = () => {
 const FeatureFigure = () => {
   return (
     <div className="flex flex-wrap w-100 mt4">
-      {[ ...Array(12) ].map((_, i) => <Figure key={i} />)}
+      {[ ...Array(12) ].map((_, i) => <Figure key={i} author={i} />)}
     </div>
   );
 };
