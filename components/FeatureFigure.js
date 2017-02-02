@@ -40,7 +40,7 @@ const Figure = () => {
 const FeatureFigure = () => {
   return (
     <div className="flex flex-wrap w-100">
-      {[ ...Array(12) ].map((_, i) => <Figure />)}
+      {[ ...Array(12) ].map((_, i) => <Figure key={i} />)}
     </div>
   );
 };
