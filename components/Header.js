@@ -18,18 +18,27 @@ const Header = () => {
         .flex-1 {
           flex: 1;
         }
+        .flex-2 {
+          flex: 2;
+        }
         .flex-3 {
           flex: 3;
         }
         `
         }
       </style>
-      <div className="mw8 center flex ph0-l ph4 items-center h3 f5">
-        <a href="/" className="flex items-center flex-1 ttu f4 link black">
+      <div className="mw8 center flex ph4 items-center h3 f5">
+        <a
+          href="/"
+          className="flex items-center flex-3 flex-1-ns ttu f4 link black"
+        >
           <Logo scale={0.25} />
           <span className="ph3">Thích đọc</span>
         </a>
-        <ul className="flex flex-3 flex-start list">
+        <a className="dn-ns">
+          Menu
+        </a>
+        <ul className="flex-ns flex-3-ns dn flex-start list">
           <li className="">
             <NavLink href="/explore">Explore</NavLink>
           </li>

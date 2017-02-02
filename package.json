@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "next": "next",
-    "next.js": "^1.0.3"
+    "next.js": "^1.0.3",
+    "typings": "^2.1.0"
   }
 }
