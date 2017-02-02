@@ -15,15 +15,7 @@ const Header = () => {
       <style jsx>
         {
           `
-        .flex-1 {
-          flex: 1;
-        }
-        .flex-2 {
-          flex: 2;
-        }
-        .flex-3 {
-          flex: 3;
-        }
+
         `
         }
       </style>

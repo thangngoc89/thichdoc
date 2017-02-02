@@ -25,6 +25,18 @@ export default ({ children }) => (
         padding: 0;
         background: ${d.colorSilver}
       }
+      .flex-1 {
+        flex: 1;
+      }
+      .flex-2 {
+        flex: 2;
+      }
+      .flex-3 {
+        flex: 3;
+      }
+      .flex-4 {
+        flex: 3;
+      }
       `
       }
     </style>
