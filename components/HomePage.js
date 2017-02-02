@@ -32,7 +32,7 @@ const HomePage = () => {
           </p>
         </div>
       </article>
-      <main className="mw8 center pa3">
+      <main className="mw9 center pa4">
         <div>
           <h1 className="ttu f4 link black">Tủ sách nổi bật</h1>
           <FeatureFigure />
