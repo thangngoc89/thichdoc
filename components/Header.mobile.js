@@ -11,23 +11,25 @@ const NavLink = ({ href, children }) => {
 };
 const Header = () => {
   return (
-    <header className="mb0 bg-white fixed top-0 left-0 w-100">
-      <div className="mw8 center flex ph4 items-center h3 f5">
-        <a
-          href="/"
-          className="flex items-center flex-3 flex-1-ns justify-start ttu f4 link black"
+    <header className="mb0 bg-white fixed top-0 left-0 w-100 f5">
+      <div className="mw8 flex flex-column center">
+        <div
+          className="flex h3 items-center ph4 bb b--light-silver"
+          style={{ flex: "1 1 100%" }}
         >
-          <Logo scale={0.2} />
-          <span className="ph2">Thích đọc</span>
-        </a>
-        <a className="dn-ns flex flex-1 justify-end">
-          Menu
-        </a>
-        <ul className="flex-ns flex-3-ns justify-end dn flex-start list tr">
-          <li className="">
+          <a href="/" className="flex flex-2 items-center ttu f4 link black">
+            <Logo scale={0.2} />
+            <span className="ph2">Thích đọc</span>
+          </a>
+          <a className="flex flex-1 justify-end bg-grey">
+            Menu
+          </a>
+        </div>
+        <ul className="dn flex-column ph0 mv0 list tc">
+          <li className="bb b--light-silver pv3">
             <NavLink href="/kham-pha">Khám phá</NavLink>
           </li>
-          <li className="">
+          <li className="bb b--light-silver pv3">
             <NavLink href="/noi-bat">Nổi bật</NavLink>
           </li>
         </ul>

@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "next": "next"
+    "next": "next",
+    "tachyons": "^4.6.2"
   },
   "scripts": {
     "dev": "next",
