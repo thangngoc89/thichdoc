@@ -26,7 +26,7 @@ const HomePage = () => {
         <div
           className="flex flex-column items-center justify-center white tc bg-black-80 h-100 w-100"
         >
-          <h1 className="bold">You are what you read</h1>
+          <h1 className="bold">Đọc sách thật phong cách</h1>
           <p className="tracked">
             Khám phá tủ sách người nổi tiếng và tạo tủ sách của riêng bạn
           </p>
