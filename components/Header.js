@@ -15,10 +15,10 @@ const Header = () => {
       <div className="mw8 center flex ph4 items-center h3 f5">
         <a
           href="/"
-          className="flex items-center flex-3 flex-1-ns ttu f4 link black"
+          className="flex items-center flex-3 flex-1-ns justify-start ttu f4 link black"
         >
-          <Logo scale={0.25} />
-          <span className="ph3">Thích đọc</span>
+          <Logo scale={0.2} />
+          <span className="ph2">Thích đọc</span>
         </a>
         <a className="dn-ns flex flex-1 justify-end">
           Menu

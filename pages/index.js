@@ -12,11 +12,17 @@ const HomePage = () => {
           background-repeat: no-repeat;
           height: 25em;
         }
+
+        @media (min-width: 30em) {
+          article {
+            height: 30em;
+          }
+        }
       `
         }
       </style>
       <article
-        className="cover flex flex-column items-center justify-center white"
+        className="cover flex flex-column items-center justify-center white tc"
       >
         <h1 className="bold">Người nổi tiếng đọc gì?</h1>
         <p className="tracked">
