@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Footer from "./Footer";
 import d from "../design";
 import Head from "next/head";
 
@@ -43,6 +44,7 @@ export default ({ children, title }) => (
     </Head>
     <Header />
     {children}
+    <Footer />
     <style jsx global>
       {
         `

@@ -9,7 +9,7 @@ const HomePage = () => {
         {
           `
         article {
-          background-image: url(/static/bg.png);
+          background-image: url(/static/images/book-bg.jpg);
           background-repeat: no-repeat;
           height: 25em;
         }
@@ -22,13 +22,15 @@ const HomePage = () => {
       `
         }
       </style>
-      <article
-        className="cover flex flex-column items-center justify-center white tc"
-      >
-        <h1 className="bold">You are what you read</h1>
-        <p className="tracked">
-          Khám phá tủ sách người nổi tiếng và tạo tủ sách của riêng bạn
-        </p>
+      <article className="cover">
+        <div
+          className="flex flex-column items-center justify-center white tc bg-black-80 h-100 w-100"
+        >
+          <h1 className="bold">You are what you read</h1>
+          <p className="tracked">
+            Khám phá tủ sách người nổi tiếng và tạo tủ sách của riêng bạn
+          </p>
+        </div>
       </article>
       <main className="mw8 center pa3">
         <div>
