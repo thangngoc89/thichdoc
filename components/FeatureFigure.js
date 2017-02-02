@@ -12,11 +12,13 @@ const Figure = () => {
         @media (min-width: 30em) {
           section {
             min-width: 50%;
+            flex: 1 1 50%;
           }
         }
         @media (min-width: 60em) {
           section {
             min-width: 33.33%;
+            flex: 1 1 33.33%;            
           }
         }
         `
