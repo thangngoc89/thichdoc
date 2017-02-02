@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Header from "./Header.mobile";
 import d from "../design";
 import Head from "next/head";
 
