@@ -25,10 +25,10 @@ const Header = () => {
         </a>
         <ul className="flex-ns flex-3-ns justify-end dn flex-start list tr">
           <li className="">
-            <NavLink href="/explore">Explore</NavLink>
+            <NavLink href="/kham-pha">Khám phá</NavLink>
           </li>
           <li className="">
-            <NavLink href="/featured">Featured</NavLink>
+            <NavLink href="/noi-bat">Nổi bật</NavLink>
           </li>
         </ul>
       </div>
