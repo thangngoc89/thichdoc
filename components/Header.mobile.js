@@ -30,19 +30,35 @@ class Header extends Component {
           max-height: 50vh; 
           transition: max-height 0.4s ease;
         }
+
         .hide-ul {
           max-height: 0vh;
         }
         .hide-ul > li {
           display: none;
         }
+        @media (min-width: 30em) {
+          .hide-ul {
+            max-height: 50vh;
+          }
+          .hide-ul > li {
+            display: block;
+          }
+        }
+        .flex-100 {
+          flex: 1 1 100%;
+        }
+        @media (min-width: 30em) {
+          .flex-100 {
+            flex: 1 1 auto;
+          }
+        }
       `
           }
         </style>
-        <div className="mw8 flex flex-column center">
+        <div className="mw8 flex flex-column flex-row-ns center">
           <div
-            className="flex h3 items-center ph4 bb b--light-silver"
-            style={{ flex: "1 1 100%" }}
+            className="flex flex-1 flex-100 h3 items-center ph4 bb bn-ns b--light-silver"
           >
             <div className="flex flex-3">
               <a href="/" className="flex items-center ttu f4 link black">
@@ -50,7 +66,7 @@ class Header extends Component {
                 <span className="pl2">Thích đọc</span>
               </a>
             </div>
-            <div>
+            <div className="dn-ns">
               <a
                 onClick={this.onMenuClick}
                 className="flex items-center pointer"
@@ -61,14 +77,15 @@ class Header extends Component {
             </div>
           </div>
           <ul
-            className={cl("flex flex-column ph0 mv0 list tc", {
-              "hide-ul": this.state.hideMenu,
-            })}
+            className={cl(
+              "flex flex-column flex-2 flex-row-ns items-center justify-end ph0 mv0 list tc",
+              { "hide-ul": this.state.hideMenu },
+            )}
           >
-            <li className="bb b--light-silver pv3">
+            <li className="bb bn-ns b--light-silver pv3 w-100 w-auto-ns">
               <NavLink href="/kham-pha">Khám phá</NavLink>
             </li>
-            <li className="bb b--light-silver pv3">
+            <li className="bb bn-ns b--light-silver pv3 w-100 w-auto-ns">
               <NavLink href="/noi-bat">Nổi bật</NavLink>
             </li>
           </ul>
