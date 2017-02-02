@@ -24,7 +24,7 @@ const HomePage = () => {
       <article
         className="cover flex flex-column items-center justify-center white tc"
       >
-        <h1 className="bold">Người nổi tiếng đọc gì?</h1>
+        <h1 className="bold">You are what you read</h1>
         <p className="tracked">
           Khám phá tủ sách người nổi tiếng và tạo tủ sách của riêng bạn
         </p>
