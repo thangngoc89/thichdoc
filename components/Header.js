@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Link from "next/link";
+import Link from "next/prefetch";
 import Logo from "./Logo";
 import cl from "classnames";
 import MenuIcon from "../icons/menu.svg";
 
 const NavLink = ({ href, children }) => {
   return (
-    <Link>
-      <a className="ph2 link black tracked f6" href={href}>
+    <Link href={href}>
+      <a className="ph2 link black tracked f6">
         {children}
       </a>
     </Link>
@@ -60,7 +60,7 @@ class Header extends Component {
         </style>
         <div className="mw8 flex flex-column flex-row-ns center">
           <div
-            className="flex flex-1 flex-100 h3 items-center ph4 bb bn-ns b--light-silver"
+            className="flex flex-1 flex-100 h3 ph3 items-center bb bn-ns b--light-silver"
           >
             <div className="flex flex-3">
               <Link href="/">
