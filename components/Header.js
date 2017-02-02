@@ -6,9 +6,11 @@ import MenuIcon from "../icons/menu.svg";
 
 const NavLink = ({ href, children }) => {
   return (
-    <a className="ph2 link black tracked f6" href={href}>
-      {children}
-    </a>
+    <Link>
+      <a className="ph2 link black tracked f6" href={href}>
+        {children}
+      </a>
+    </Link>
   );
 };
 
@@ -61,10 +63,12 @@ class Header extends Component {
             className="flex flex-1 flex-100 h3 items-center ph4 bb bn-ns b--light-silver"
           >
             <div className="flex flex-3">
-              <a href="/" className="flex items-center ttu f4 link black">
-                <Logo scale={0.2} />
-                <span className="pl2">Thích đọc</span>
-              </a>
+              <Link href="/">
+                <a className="flex items-center ttu f4 link black">
+                  <Logo scale={0.2} />
+                  <span className="pl2">Thích đọc</span>
+                </a>
+              </Link>
             </div>
             <div className="dn-ns">
               <a
