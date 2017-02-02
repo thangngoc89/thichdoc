@@ -4,14 +4,14 @@ import Logo from "./Logo";
 
 const NavLink = ({ href, children }) => {
   return (
-    <a className="ph2 link white tracked f6" href={href}>
+    <a className="ph2 link black tracked f6" href={href}>
       {children}
     </a>
   );
 };
 const Header = () => {
   return (
-    <header className="mb0 bg-black o-80 fixed top-0 left-0 w-100">
+    <header className="mb0 bg-white fixed top-0 left-0 w-100">
       <style jsx>
         {
           `
@@ -24,10 +24,10 @@ const Header = () => {
         `
         }
       </style>
-      <div className="mw8 center flex ph0-l ph4 items-center h2-ns f5 f6-ns">
-        <a href="/" className="flex-1 ttu f4 link white">
+      <div className="mw8 center flex ph0-l ph4 items-center h3 f5">
+        <a href="/" className="flex items-center flex-1 ttu f4 link black">
           <Logo scale={0.25} />
-          Thích đọc
+          <span className="ph3">Thích đọc</span>
         </a>
         <ul className="flex flex-3 flex-start list">
           <li className="">
