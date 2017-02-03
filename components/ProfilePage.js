@@ -53,22 +53,22 @@ const BookShelf = () => (
   </Card>
 );
 
-const OtherGroups = () => <Card className="h5 w-100 bg-blue" />;
+const OtherGroups = () => <Card className="h5 w-100 bg-blue">nah</Card>;
 
 const ProfilePage = () => {
   return (
     <App>
       <main className="mw9 center pa3 pa4-ns mt5">
         <Cover />
-        <div className="flex flex-column">
-          <UserInfo />
-          <div className="">
+        <div style={{ display: "flex", flexFlow: "column wrap" }}>
+          <div style={{ flex: "1 0 100%" }}>
+            <UserInfo />
+          </div>
+          <div style={{ flex: "1 1 auto" }}>
             <Bio />
             <BookShelf />
           </div>
-          <div className="">
-            <OtherGroups />
-            <OtherGroups />
+          <div style={{ flex: "1 1 auto" }}>
             <OtherGroups />
           </div>
         </div>
