@@ -34,7 +34,7 @@ class Header extends Component {
         }
 
         .hide-ul {
-          max-height: 0vh;
+          max-height: 0;
         }
         .hide-ul > li {
           display: none;
