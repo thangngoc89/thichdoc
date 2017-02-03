@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "classnames": "^2.2.5",
-    "next": "next"
+    "next": "next",
+    "react-lazyload": "^2.2.0"
   },
   "scripts": {
     "dev": "next",
