@@ -40,7 +40,10 @@ const UserInfo = () => (
 );
 const Bio = () => (
   <Card>
-    "Nguyễn Quang Lập (thường được yêu mến gọi là Bọ Lập) là một nhà văn, nhà viết kịch, nhà biên kịch điện ảnh của Việt Nam. “Đời cát”, “Thung lũng hoang vắng” đem về cho ông giải thưởng Nhà biên kịch xuất sắc nhất. Trong vai trò nhà văn, Nguyễn Quang Lập nổi tiếng với lối văn khẩu ngữ, giọng điệu tưng tửng rất riêng. Các tác phẩm tiêu biểu: Tình Cát, Bạn Văn, Ký Ức vụn, Những mảnh đời đen trắng, Người thổi kèn Trom – pet… Sau một cơn tai biến, Bọ Lập chỉ còn cử động được một chân và một tay. Dù vậy, với một tay còn lại, ông vẫn cần mẫn lọc tin, đều đặn giới thiệu trên facebook cá nhân và sáng tác.
+    <h2 className="f5">Tiểu sử</h2>
+    <span>
+      "Nguyễn Quang Lập (thường được yêu mến gọi là Bọ Lập) là một nhà văn, nhà viết kịch, nhà biên kịch điện ảnh của Việt Nam. “Đời cát”, “Thung lũng hoang vắng” đem về cho ông giải thưởng Nhà biên kịch xuất sắc nhất. Trong vai trò nhà văn, Nguyễn Quang Lập nổi tiếng với lối văn khẩu ngữ, giọng điệu tưng tửng rất riêng. Các tác phẩm tiêu biểu: Tình Cát, Bạn Văn, Ký Ức vụn, Những mảnh đời đen trắng, Người thổi kèn Trom – pet… Sau một cơn tai biến, Bọ Lập chỉ còn cử động được một chân và một tay. Dù vậy, với một tay còn lại, ông vẫn cần mẫn lọc tin, đều đặn giới thiệu trên facebook cá nhân và sáng tác.
+    </span>
   </Card>
 );
 
@@ -50,14 +53,25 @@ const BookShelf = () => (
   </Card>
 );
 
+const OtherGroups = () => <Card className="h5 w-100 bg-blue" />;
+
 const ProfilePage = () => {
   return (
     <App>
       <main className="mw9 center pa3 pa4-ns mt5">
         <Cover />
-        <UserInfo />
-        <Bio />
-        <BookShelf />
+        <div className="flex flex-column">
+          <UserInfo />
+          <div className="">
+            <Bio />
+            <BookShelf />
+          </div>
+          <div className="">
+            <OtherGroups />
+            <OtherGroups />
+            <OtherGroups />
+          </div>
+        </div>
       </main>
     </App>
   );
