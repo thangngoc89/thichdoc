@@ -74,6 +74,13 @@ export default ({ children, title }) => (
         -webkit-box-flex:3 3 auto;
         -webkit-flex:3 3 auto;
       }
+      .fade-appear {
+        opacity: 0.01;
+      }
+      .fade-appear.fade-appear-active {
+        opacity: 1;
+        transition: opacity .5s ease-in;
+      }
       `
       }
     </style>
