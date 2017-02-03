@@ -15,7 +15,10 @@ const UserInfo = () => (
       src="/static/authors/1.jpg"
     />
     <div className="pa2">
-      <h1 className="f3">Nguyễn Quang Lập</h1>
+      <h1 className="f3 ma0">Nguyễn Quang Lập</h1>
+      <span className="f6 light-silver db mv3">
+        500 người theo dõi | 20 sách
+      </span>
       <a
         href="#0"
         className="with-plus-icon flex w-100 justify-center items-center pa2 ba b--red border-box f5 red hover-white hover-bg-red no-underline bg-animate"
