@@ -6,7 +6,7 @@ import d from "../design";
 
 const Cover = () => (
   <div>
-    <img className="w-100 h4" src="/static/images/abstract2.jpg" />
+    <img className="w-100 h4 h5-ns" src="/static/images/abstract2.jpg" />
   </div>
 );
 const UserInfo = () => (
@@ -60,8 +60,25 @@ const ProfilePage = () => {
     <App>
       <main className="mw9 center pa3 pa4-ns mt5">
         <Cover />
-        <UserInfo />
-        <Bio />
+        <style jsx>
+          {
+            `
+          @media (min-width: 30em) {
+            .two {
+              flex: 1;
+            }
+          }
+         `
+          }
+        </style>
+        <div className="flex-ns mv-100">
+          <div className="flex-ns items-stretch-ns w5-ns">
+            <UserInfo />
+          </div>
+          <div className="flex-ns items-stretch-ns two pl4-ns">
+            <Bio />
+          </div>
+        </div>
         <BookShelf />
         <OtherGroups />
       </main>
