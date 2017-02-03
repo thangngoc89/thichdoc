@@ -9,7 +9,7 @@ const Cover = () => (
   </div>
 );
 const UserInfo = () => (
-  <div className="w-100 tc mv3 pb2 bg-white">
+  <div className="w-100 tc mv3 bg-white">
     <img
       className="br-100 pa1 mb2 bg-white h4 w4 nt5"
       src="/static/authors/1.jpg"
