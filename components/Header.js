@@ -60,7 +60,7 @@ class Header extends Component {
         </style>
         <nav className="mw9 flex flex-column flex-row-ns center ph4-ns">
           <div
-            className="flex flex-1 flex-100 h3 ph4 ph0-ns items-center bb bn-ns b--light-silver"
+            className="flex flex-1 flex-100 h3 ph3 ph0-ns items-center bb bn-ns b--light-silver"
           >
             <div className="flex flex-3">
               <Link href="/">
