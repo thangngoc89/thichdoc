@@ -60,18 +60,10 @@ const ProfilePage = () => {
     <App>
       <main className="mw9 center pa3 pa4-ns mt5">
         <Cover />
-        <div style={{ display: "flex", flexFlow: "column wrap" }}>
-          <div style={{ flex: "1 0 100%" }}>
-            <UserInfo />
-          </div>
-          <div style={{ flex: "1 1 auto" }}>
-            <Bio />
-            <BookShelf />
-          </div>
-          <div style={{ flex: "1 1 auto" }}>
-            <OtherGroups />
-          </div>
-        </div>
+        <UserInfo />
+        <Bio />
+        <BookShelf />
+        <OtherGroups />
       </main>
     </App>
   );
