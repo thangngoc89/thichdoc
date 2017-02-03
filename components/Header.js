@@ -58,7 +58,7 @@ class Header extends Component {
       `
           }
         </style>
-        <div className="mw9 flex flex-column flex-row-ns center ph4-ns">
+        <nav className="mw9 flex flex-column flex-row-ns center ph4-ns">
           <div
             className="flex flex-1 flex-100 h3 ph4 ph0-ns items-center bb bn-ns b--light-silver"
           >
@@ -93,7 +93,7 @@ class Header extends Component {
               <NavLink href="/noi-bat">Nổi bật</NavLink>
             </li>
           </ul>
-        </div>
+        </nav>
       </header>
     );
   }
