@@ -1,4 +1,15 @@
 import React from "react";
+import LazyLoad from "react-lazyload";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+const ImgPlaceHolder = () => {
+  return (
+    <img
+      src="/static/images/nophoto.png"
+      className="w-100 bg-light-silver"
+      title="Placeholder"
+    />
+  );
+};
 
 const Figure = ({ author }) => {
   return (
@@ -30,15 +41,29 @@ const Figure = ({ author }) => {
               flex: 1 1 22%;            
             }
           }
+          .fade-appear {
+            opacity: 0.01;
+          }
+          .fade-appear.fade-appear-active {
+            opacity: 1;
+            transition: opacity .5s ease-in;
+          }
           `
         }
       </style>
       <div className="tc">
-        <img
-          src="/static/images/nophoto.png"
-          className="w-100 bg-light-silver"
-          title="Author's photo"
-        />
+        <LazyLoad offset={200} placeholder={<ImgPlaceHolder />}>
+          <ReactCSSTransitionGroup
+            key="1"
+            transitionName="fade"
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+            transitionEnter={false}
+            transitionLeave={false}
+          >
+            <img src={`/static/authors/${+author + 1}.jpg`} className="w-100" />
+          </ReactCSSTransitionGroup>
+        </LazyLoad>
         <h1 className="f3 mb2">Mimi W.</h1>
         <h2 className="f5 fw4 gray mt0">CCO (Chief Cat Officer)</h2>
       </div>
