@@ -22,7 +22,7 @@ const Figure = ({ author }) => {
 };
 
 const FeaturedFigure = () => {
-  const list = [ ...Array(12) ].map((_, i) => <Figure key={i} author={i} />);
+  const list = [ ...Array(12) ].map((_, i) => <Figure author={i} />);
   return (
     <div className="mt4">
       <GridFluidFourMax list={list} />
