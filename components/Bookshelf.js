@@ -2,12 +2,11 @@ import React from "react";
 import GridFluidFourMax from "./BuildBlocks/GridFluidFourMax";
 
 const Book = ({ i }) => (
-  <article className="bg-white">
+  <article className="bg-white mh3 flex flex-column justify-end h-100">
     <a className="link">
       <img
         src={`/static/books/book${+i + 1}.jpg`}
         className="w-100 bg-light-silver dim bb bw3 b--red ma0 pa0"
-        height="410px"
       />
     </a>
     <div className="pa3">
