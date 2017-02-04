@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@mars/heroku-nextjs-build": "https://github.com/mars/heroku-nextjs-build",
+    "babel-plugin-inline-react-svg": "^0.2.0",
     "classnames": "^2.2.5",
     "next": "next",
     "react-addons-css-transition-group": "^15.4.2",
@@ -7,10 +9,9 @@
   },
   "scripts": {
     "dev": "next",
-    "start": "next start",
-    "build": "next build"
-  },
-  "devDependencies": {
-    "babel-plugin-inline-react-svg": "^0.2.0"
+    "start": "next start -p $PORT",
+    "build": "next build",
+    "heroku-start": "next start -p $PORT",
+    "heroku-postbuild": "heroku-nextjs-build"
   }
 }
