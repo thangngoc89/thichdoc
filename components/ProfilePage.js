@@ -1,12 +1,16 @@
 import React from "react";
 import App from "./App";
 import PlusIcon from "../icons/plus.svg";
-import Card from "./Card";
+import Card from "./BuildBlocks/Card";
 import ButtonBlock from "./BuildBlocks/ButtonBlock";
+import BookShelf from "./Bookshelf";
 
 const Cover = () => (
   <div>
-    <img className="w-100 h4 h5-ns" src="/static/images/abstract2.jpg" />
+    <img
+      className="w-100 h4 h5-ns bg-gray"
+      src="/static/images/abstract2.jpg"
+    />
   </div>
 );
 const UserInfo = () => (
@@ -46,14 +50,6 @@ const Bio = () => (
   </Card>
 );
 
-const BookShelf = () => (
-  <Card className="vh-75 w-100 bg-red">
-    lorem ipsum
-  </Card>
-);
-
-const OtherGroups = () => <Card className="h5 w-100 bg-blue">nah</Card>;
-
 const ProfilePage = () => {
   return (
     <App>
@@ -79,7 +75,6 @@ const ProfilePage = () => {
           </div>
         </div>
         <BookShelf />
-        <OtherGroups />
       </main>
     </App>
   );
