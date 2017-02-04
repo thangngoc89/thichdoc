@@ -2,7 +2,7 @@ import React from "react";
 import App from "./App";
 import PlusIcon from "../icons/plus.svg";
 import Card from "./Card";
-import ButtonBlock from "./Button/ButtonBlock";
+import ButtonBlock from "./BuildBlocks/ButtonBlock";
 
 const Cover = () => (
   <div>
