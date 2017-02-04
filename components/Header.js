@@ -24,7 +24,7 @@ class Header extends Component {
   };
   render() {
     return (
-      <header className="mb0 bg-white fixed top-0 left-0 w-100 f5">
+      <header className="mb0 bg-white fixed top-0 left-0 w-100 f5 z-max">
         <style jsx>
           {
             `
