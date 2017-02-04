@@ -2,8 +2,9 @@ import React from "react";
 import LazyLoad from "react-lazyload";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
+const blankImg = "data:image/gif;base64,R0lGODdhEAAJAIAAAMLCwsLCwiwAAAAAEAAJAAACCoSPqcvtD6OclBUAOw==";
 const ImageLazyLoad = (
-  { src, placeHolderSrc = "/static/images/nophoto.png", offset, ...props },
+  { src, placeHolderSrc = blankImg, offset, ...props },
 ) => (
   <LazyLoad offset={200} placeholder={<img src={placeHolderSrc} {...props} />}>
     <ReactCSSTransitionGroup
