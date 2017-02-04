@@ -2,7 +2,7 @@ import React from "react";
 import App from "./App";
 import PlusIcon from "../icons/plus.svg";
 import Card from "./Card";
-import d from "../design";
+import ButtonBlock from "./Button/ButtonBlock";
 
 const Cover = () => (
   <div>
@@ -10,40 +10,39 @@ const Cover = () => (
   </div>
 );
 const UserInfo = () => (
-  <Card className="tc">
-    <img
-      className="br-100 pa1 mb2 bg-white h4 w4 nt5"
-      src="/static/authors/1.jpg"
-    />
+  <Card className="flex flex-column items-center">
+    <figure>
+      <img
+        className="br-100 pa1 mb2 bg-white h4 w4 nt5"
+        src="/static/authors/1.jpg"
+      />
+    </figure>
     <h1 className="f3 ma0">Nguyễn Quang Lập</h1>
-    <span className="f6 light-silver db mv3">
-      500 người theo dõi | 20 sách
-    </span>
-    <a
-      href="#0"
-      className="with-plus-icon flex w-100 justify-center items-center pa2 ba b--red border-box f5 red hover-white hover-bg-red no-underline bg-animate"
-    >
+    <p className="f5 red tracked mv0">Nhà văn</p>
+    <div className="bottom-block">
       <style jsx>
         {
           `
-          .with-plus-icon:hover > :global(svg), 
-          .with-plus-icon:focus > :global(svg) {
-            fill: #fff;
+          .bottom-block {
+            margin-top: auto;
           }
-          `
+        `
         }
       </style>
-      <PlusIcon className="w1" fill={d.colorPrimary} />
-      <span className="pl1">Theo dõi</span>
-    </a>
+      <span className="f6 light-silver db mv3">
+        500 người theo dõi | 20 sách
+      </span>
+      <ButtonBlock action="Theo dõi" SVGIcon={PlusIcon} />
+    </div>
   </Card>
 );
+
 const Bio = () => (
   <Card>
     <h2 className="f5">Tiểu sử</h2>
-    <span>
+    <p className="lh-copy i">
       "Nguyễn Quang Lập (thường được yêu mến gọi là Bọ Lập) là một nhà văn, nhà viết kịch, nhà biên kịch điện ảnh của Việt Nam. “Đời cát”, “Thung lũng hoang vắng” đem về cho ông giải thưởng Nhà biên kịch xuất sắc nhất. Trong vai trò nhà văn, Nguyễn Quang Lập nổi tiếng với lối văn khẩu ngữ, giọng điệu tưng tửng rất riêng. Các tác phẩm tiêu biểu: Tình Cát, Bạn Văn, Ký Ức vụn, Những mảnh đời đen trắng, Người thổi kèn Trom – pet… Sau một cơn tai biến, Bọ Lập chỉ còn cử động được một chân và một tay. Dù vậy, với một tay còn lại, ông vẫn cần mẫn lọc tin, đều đặn giới thiệu trên facebook cá nhân và sáng tác.
-    </span>
+    </p>
   </Card>
 );
 
@@ -71,11 +70,11 @@ const ProfilePage = () => {
          `
           }
         </style>
-        <div className="flex-ns mv-100">
-          <div className="flex-ns items-stretch-ns w5-ns">
+        <div className="flex-l mv-100">
+          <div className="flex-l items-stretch-l w5-l">
             <UserInfo />
           </div>
-          <div className="flex-ns items-stretch-ns two pl4-ns">
+          <div className="flex-l items-stretch-l two pl4-l">
             <Bio />
           </div>
         </div>
