@@ -41,7 +41,7 @@ const Figure = ({ author }) => {
             <ImageLazyLoad
               offset={200}
               src={`/static/authors/${+author + 1}.jpg`}
-              className="w-100 bg-light-silver"
+              className="w-100 bg-light-silver dim"
             />
           </a>
         </Link>
