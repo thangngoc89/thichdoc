@@ -16,7 +16,7 @@ const Cover = () => (
   </div>
 );
 const UserInfo = ({ avatar, job, name, recommendationsCount }) => (
-  <Card className="flex flex-column items-center">
+  <Card className="flex flex-column items-center tc">
     <figure>
       <img
         className="br-100 pa1 mb2 bg-white h4 w4 nt5 shadow-5"
