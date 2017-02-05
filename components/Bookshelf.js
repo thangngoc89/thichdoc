@@ -2,9 +2,9 @@ import React from "react";
 import cl from "classnames";
 import GridFluidFourMax from "./BuildBlocks/GridFluidFourMax";
 
-const Book = ({ author, cover, name }) => (
+const Book = ({ author, cover, name, link }) => (
   <article className="mh4 mh3-ns flex flex-column justify-end h-100">
-    <a className="link">
+    <a href={link} target="_blank" className="link">
       <style jsx>
         {
           `
@@ -32,7 +32,7 @@ const Book = ({ author, cover, name }) => (
 
 const Bookshelf = ({ books }) => {
   const list = books.map((b, i) => (
-    <Book key={i} name={b.name} author={b.author} cover={b.img} />
+    <Book key={i} name={b.name} author={b.author} cover={b.img} link={b.link} />
   ));
   return (
     <div className="w-100">
