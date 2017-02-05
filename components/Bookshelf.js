@@ -1,7 +1,7 @@
 import React from "react";
 import cl from "classnames";
 import GridFluidFourMax from "./BuildBlocks/GridFluidFourMax";
-import { default as affiliateUrl } from "../helpers/affiliate-url";
+import { default as affiliateUrl } from "../helpers/affiliate-url.js";
 
 const Book = ({ author, cover, name, link }) => (
   <article className="mh4 mh3-ns flex flex-column justify-end h-100">

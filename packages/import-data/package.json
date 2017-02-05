@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "hat": "^0.0.3",
+    "lodash": "^4.17.4",
+    "lokka": "^1.7.0",
+    "lokka-transport-http": "^1.6.1",
+    "speakingurl": "^11.0.0"
+  }
+}
