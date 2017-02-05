@@ -1,8 +1,11 @@
 import React, { PropTypes as p } from "react";
 
 const GridFluidFourMax = ({ list }) => {
-  // Fix the grid for 4 column auto layout
-  const newList = list.length % 4 === 3 ? [...list, undefined] : list;
+  // Fix the grid
+  const numberOfElementNeeded = list.length % 12;
+  const newList = numberOfElementNeeded === 0
+    ? list
+    : [...list, ...Array(numberOfElementNeeded).map(() => undefined)];
 
   return (
     <ul className="flex flex-wrap w-100 ma0 pa0 justify-between list">
