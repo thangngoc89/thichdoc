@@ -8,7 +8,7 @@ import BookShelf from "./Bookshelf";
 const Cover = () => (
   <div>
     <img
-      className="w-100 h4 h5-ns bg-gray"
+      className="w-100 h4 h5-ns bg-gray shadow-4"
       src="/static/images/abstract2.jpg"
     />
   </div>
@@ -17,7 +17,7 @@ const UserInfo = () => (
   <Card className="flex flex-column items-center">
     <figure>
       <img
-        className="br-100 pa1 mb2 bg-white h4 w4 nt5"
+        className="br-100 pa1 mb2 bg-white h4 w4 nt5 shadow-5"
         src="/static/authors/1.jpg"
       />
     </figure>

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Figure = ({ name, avatar, job }) => {
   return (
-    <div className="tc bg-white pb3 shadow-4">
+    <div className="tc bg-white pb3 shadow-4 h-100">
       <Link href="/profile">
         <a className="link">
           <ImageLazyLoad
