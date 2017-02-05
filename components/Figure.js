@@ -2,10 +2,10 @@ import React, { PropTypes as p } from "react";
 import ImageLazyLoad from "./ImageLazyLoad";
 import Link from "next/link";
 
-const Figure = ({ name, avatar, job }) => {
+const Figure = ({ name, avatar, job, username }) => {
   return (
     <div className="tc bg-white pb3 shadow-4 h-100">
-      <Link href="/profile">
+      <Link href={`/profile?username=${username}`} as={`/u/${username}`}>
         <a className="link">
           <ImageLazyLoad
             offset={200}

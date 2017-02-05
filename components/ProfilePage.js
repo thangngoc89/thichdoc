@@ -1,9 +1,11 @@
-import React from "react";
+import React, { PropTypes as p } from "react";
+
 import App from "./App";
 import PlusIcon from "../icons/plus.svg";
 import Card from "./BuildBlocks/Card";
 import ButtonBlock from "./BuildBlocks/ButtonBlock";
 import BookShelf from "./Bookshelf";
+import data from "../data/data.json";
 
 const Cover = () => (
   <div>
@@ -13,17 +15,17 @@ const Cover = () => (
     />
   </div>
 );
-const UserInfo = () => (
+const UserInfo = ({ avatar, job, name, recommendationsCount }) => (
   <Card className="flex flex-column items-center">
     <figure>
       <img
         className="br-100 pa1 mb2 bg-white h4 w4 nt5 shadow-5"
-        src="/static/authors/1.jpg"
+        src={avatar}
       />
     </figure>
-    <h1 className="f3 ma0">Nguyễn Quang Lập</h1>
-    <p className="f5 red tracked mv0">Nhà văn</p>
-    <div className="bottom-block">
+    <h1 className="f3 ma0">{name}</h1>
+    <p className="f5 red tracked mv0">{job}</p>
+    <div className="bottom-block mw5 w-100">
       <style jsx>
         {
           `
@@ -33,28 +35,32 @@ const UserInfo = () => (
         `
         }
       </style>
-      <span className="f6 light-silver db mv3">
-        500 người theo dõi | 20 sách
+      <span className="f6 light-silver db mv3 tc">
+        {/*500 người theo dõi |*/}
+        {recommendationsCount} sách
       </span>
       <ButtonBlock action="Theo dõi" SVGIcon={PlusIcon} />
     </div>
   </Card>
 );
 
-const Bio = () => (
+const Bio = ({ content }) => (
   <Card>
     <h2 className="f5">Tiểu sử</h2>
     <p className="lh-copy i">
-      "Nguyễn Quang Lập (thường được yêu mến gọi là Bọ Lập) là một nhà văn, nhà viết kịch, nhà biên kịch điện ảnh của Việt Nam. “Đời cát”, “Thung lũng hoang vắng” đem về cho ông giải thưởng Nhà biên kịch xuất sắc nhất. Trong vai trò nhà văn, Nguyễn Quang Lập nổi tiếng với lối văn khẩu ngữ, giọng điệu tưng tửng rất riêng. Các tác phẩm tiêu biểu: Tình Cát, Bạn Văn, Ký Ức vụn, Những mảnh đời đen trắng, Người thổi kèn Trom – pet… Sau một cơn tai biến, Bọ Lập chỉ còn cử động được một chân và một tay. Dù vậy, với một tay còn lại, ông vẫn cần mẫn lọc tin, đều đặn giới thiệu trên facebook cá nhân và sáng tác.
+      {content}
     </p>
   </Card>
 );
+Bio.propTypes = {
+  content: p.string.isRequired
+};
 
-const ProfilePage = () => {
+const ProfilePage = ({ user }) => {
   return (
-    <App>
+    <App title={user.name}>
       <main className="mw9 center pa3 pa4-ns mt5">
-        <Cover />
+        {/*<Cover />*/}
         <style jsx>
           {
             `
@@ -68,16 +74,30 @@ const ProfilePage = () => {
         </style>
         <div className="flex-l mv-100">
           <div className="flex-l items-stretch-l w5-l">
-            <UserInfo />
+            <UserInfo
+              name={user.name}
+              job={user.job}
+              avatar={user.avatar}
+              recommendationsCount={user.books.length}
+            />
           </div>
           <div className="flex-l items-stretch-l two pl4-l">
-            <Bio />
+            <Bio content={user.bio} />
           </div>
         </div>
-        <BookShelf />
+        <BookShelf books={user.books} />
       </main>
     </App>
   );
 };
 
-export default ProfilePage;
+export default class WidthDataProfilePage extends React.Component {
+  static getInitialProps({ query: { username } }) {
+    const user = data.find(u => u.username === username);
+    return { user };
+  }
+
+  render() {
+    return <ProfilePage user={this.props.user} />;
+  }
+}

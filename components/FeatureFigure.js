@@ -5,7 +5,13 @@ import data from "../data/data.json";
 
 const FeaturedFigure = () => {
   const list = data.map((user, i) => (
-    <Figure key={i} avatar={user.avatar} name={user.name} job={user.job} />
+    <Figure
+      key={i}
+      avatar={user.avatar}
+      name={user.name}
+      job={user.job}
+      username={user.username}
+    />
   ));
   return (
     <div className="mt4">
