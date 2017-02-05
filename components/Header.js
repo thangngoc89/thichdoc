@@ -24,7 +24,9 @@ class Header extends Component {
   };
   render() {
     return (
-      <header className="mb0 bg-white fixed top-0 left-0 w-100 f5 z-max">
+      <header
+        className="mb0 bg-white fixed top-0 left-0 w-100 f5 z-max shadow-5"
+      >
         <style jsx>
           {
             `
@@ -58,7 +60,9 @@ class Header extends Component {
       `
           }
         </style>
-        <nav className="mw9 flex flex-column flex-row-ns center ph4-ns">
+        <nav
+          className="mw9 flex flex-column flex-row-ns center ph4-ns relative"
+        >
           <div
             className="flex flex-1 flex-100 h3 ph3 ph0-ns items-center bb bn-ns b--light-silver"
           >
@@ -83,7 +87,7 @@ class Header extends Component {
           <ul
             className={cl(
               "flex flex-column flex-2 flex-row-ns items-center justify-end ph0 mv0 list tc",
-              { "hide-ul": this.state.hideMenu },
+              { "hide-ul": this.state.hideMenu }
             )}
           >
             <li className="bb bn-ns b--light-silver pv3 w-100 w-auto-ns">
