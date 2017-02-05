@@ -1,6 +1,10 @@
 {
   "dependencies": {
     "cheerio": "^0.22.0",
-    "got": "^6.7.1"
+    "got": "^6.7.1",
+    "mz": "^2.6.0"
+  },
+  "scripts": {
+    "start": "node --harmony-async-await index.js"
   }
 }
