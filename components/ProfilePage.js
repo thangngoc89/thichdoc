@@ -93,16 +93,14 @@ const ProfilePage = ({ user }) => {
 
 export default class WidthDataProfilePage extends React.Component {
   static getInitialProps({ query: { username } }) {
-    console.log(username);
     const user = data.find(u => u.username === username);
-    console.log(user);
     return { user };
   }
 
   render() {
     const user = this.props.user;
 
-    if (typeof user !== "undefined") {
+    if (typeof user === "undefined") {
       return (
         <App title="404">
           <main
