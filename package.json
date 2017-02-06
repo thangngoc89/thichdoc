@@ -3,6 +3,7 @@
     "@mars/heroku-nextjs-build": "https://github.com/mars/heroku-nextjs-build",
     "babel-plugin-inline-react-svg": "^0.2.0",
     "classnames": "^2.2.5",
+    "debug": "^2.6.0",
     "finalhandler": "^0.5.1",
     "next": "next",
     "react-addons-css-transition-group": "^15.4.2",

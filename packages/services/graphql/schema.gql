@@ -1,0 +1,71 @@
+scalar DateTime
+
+type User {
+  username: String!
+  name: String
+  nickname: String
+  bio: String
+  job: String
+  # Direct URL to user's avatar images
+  avatar: String
+  # Is this a public figure?
+  isFigure: Boolean!
+  # Was this public figure claim their account?
+  isFigureClaimed: Boolean!
+  tikiLink: String
+
+  recommendBooks: [RecommendBooks]
+
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type Book {
+  # A book id
+  id: String!
+  slug: String!
+  name: String!
+  author: String!
+  abstract: String
+  cover: String!
+
+  linkAmz: String
+  linkTiki: String
+  linkVnbook: String
+
+  recommendBy: [RecommendBy]
+
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+# A book was recommended by many user
+type RecommendBy {
+  user: User!
+  content: String
+  
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+# A user has recommended many books
+type RecommendBooks {
+  book: Book!
+  content: String
+  
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type Mutation {
+  addBook(name: String!, author: String!): Book
+}
+
+
+type Query {
+  Book(id: String!): Book
+  allBooks(skip: Int, limit: Int): [Book!]!
+
+  User(username: String!): User
+  allUsers(limit: Int): [User!]!
+}
