@@ -3,7 +3,7 @@
  */
 
 export default {
-  colorPrimary: "#F14F4A",
-  colorSilver: "#F4F7F6",
+  colorPrimary: "#ff4136",
+  colorSilver: "#f4f7f6",
   maxWidth: "96em"
 };

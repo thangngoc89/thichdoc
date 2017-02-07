@@ -18,4 +18,4 @@ class SignIn extends Component {
   }
 }
 
-export default defaultPage(SignIn, { title: "Đăng nhập" });
+export default defaultPage(SignIn);

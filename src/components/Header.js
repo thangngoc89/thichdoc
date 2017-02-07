@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes as p } from "react";
 import Link from "next/prefetch";
 import Logo from "./BuildBlocks/Logo";
 import cl from "classnames";
@@ -14,6 +14,18 @@ const NavLink = ({ href, children }) => {
   );
 };
 
+const links = [
+  { href: "/kham-pha", text: "Khám phá" },
+  { href: "/noi-bat", text: "Nổi bật" },
+  { href: "/auth/sign-in", text: "Đăng nhập", anonymousOnly: true },
+  { href: "/auth/sign-off", text: "Đăng xuất", authRequired: true }
+];
+
+const getAllowedLinks = isAuthenticated =>
+  links
+    .filter(l => !l.authRequired || l.authRequired && isAuthenticated)
+    .filter(l => !isAuthenticated || isAuthenticated && !l.anonymousOnly);
+
 class Header extends Component {
   constructor() {
     super();
@@ -24,7 +36,9 @@ class Header extends Component {
   };
   render() {
     return (
-      <header className="mb0 bg-white fixed top-0 left-0 w-100 f5 z-2 shadow-5">
+      <header
+        className="mb0 bg-white fixed top-0 left-0 w-100 f5 z-max shadow-5"
+      >
         <style jsx>
           {
             `
@@ -88,20 +102,24 @@ class Header extends Component {
               { "hide-ul": this.state.hideMenu }
             )}
           >
-            <li className="bb bn-ns b--light-silver pv3 w-100 w-auto-ns">
-              <NavLink href="/kham-pha">Khám phá</NavLink>
-            </li>
-            <li className="bb bn-ns b--light-silver pv3 w-100 w-auto-ns">
-              <NavLink href="/noi-bat">Nổi bật</NavLink>
-            </li>
-            <li className="bb bn-ns b--light-silver pv3 w-100 w-auto-ns">
-              <NavLink href="/auth/sign-in">Đăng nhập</NavLink>
-            </li>
+            {getAllowedLinks(this.props.isAuthenticated).map((l, i) => (
+              <li
+                key={i}
+                className="bb bn-ns b--light-silver pv3 w-100 w-auto-ns"
+              >
+                <NavLink href={l.href}>{l.text}</NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
       </header>
     );
   }
 }
+
+Header.propTypes = {
+  isAuthenticated: p.bool.isRequired,
+  currentUrl: p.string.isRequired
+};
 
 export default Header;
