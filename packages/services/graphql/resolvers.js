@@ -1,34 +1,7 @@
 const _ = require("lodash");
 const log = require("debug")("td:graphql-resolver");
-const slug = require("speakingurl");
-const hat = require("hat");
+
 const { hasField } = require("../helpers/getFields");
-
-// const fs = require("mz/fs");
-// HELPER FUNCTIONS
-const randomId = () => hat().slice(0, 5);
-// ADD DATA
-const data = require("../../../data/data.json");
-
-const allUsers = data;
-
-const alterBookField = book => {
-  const newBook = Object.assign({}, book, {
-    id: randomId(),
-    slug: slug(book.name),
-    linkTiki: book.link,
-    cover: book.img
-  });
-  delete newBook.img;
-  delete newBook.link;
-
-  return newBook;
-};
-const allBooks = _.chain(data)
-  .flatMap(user => user.books)
-  .uniqBy(book => book.link)
-  .map(alterBookField)
-  .value();
 
 const resolveFunctions = {
   Query: {
