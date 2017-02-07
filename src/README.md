@@ -1,0 +1,1 @@
+This folder contains Next.js frontend related code
