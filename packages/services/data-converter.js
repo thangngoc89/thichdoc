@@ -4,7 +4,7 @@ const hat = require("hat");
 const slug = require("speakingurl");
 const _ = require("lodash");
 
-const randomId = () => hat().slice(0, 6);
+const randomId = () => hat().slice(0, 8);
 const json = data => JSON.stringify(data, null, 2);
 // Convert Books
 
@@ -27,9 +27,6 @@ const allBooks = _.chain(data)
   .map(alterBookField)
   .value();
 
-// Write books file
-fs.writeFileSync("./books.json", json(allBooks));
-
 // Keep a list reference between books and users
 const bookIds = allBooks.map(b => [b.name, b.id]);
 const allUsers = data.map(u => {
@@ -38,8 +35,19 @@ const allUsers = data.map(u => {
 
     return nameIdArray ? nameIdArray[1] : null;
   });
+  u.id = randomId();
   u.books = currentUserBookIds;
   return u;
 });
 
+const mapUserToBooks = allBooks.map(b => {
+  const usersRecommendedThisBook = allUsers
+    .filter(u => u.books.indexOf(b.id) > -1)
+    .map(u => u.id);
+  b.recommendBy = usersRecommendedThisBook;
+  return b;
+});
+
+// Write books file
+fs.writeFileSync("./books.json", json(mapUserToBooks));
 fs.writeFileSync("./users.json", json(allUsers));

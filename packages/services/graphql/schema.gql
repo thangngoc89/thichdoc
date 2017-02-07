@@ -1,6 +1,7 @@
 scalar DateTime
 
 type User {
+  id: String!
   username: String!
   name: String
   nickname: String
