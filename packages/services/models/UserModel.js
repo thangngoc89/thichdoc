@@ -2,10 +2,16 @@ const data = require("../user.json");
 const BookModel = require("./BookModel");
 
 class UserModel {
-  findByIds = ids => {};
+  findByIds = ids => {
+    return data.filter(u => ids.indexOf(u.id) > -1);
+  };
 
   findByUsername = username => {
     return data.find(u => u.username === username);
+  };
+
+  findById = id => {
+    return data.find(u => u.id === id);
   };
 
   findAll = (skip = 0, limit = 20) => {
@@ -15,11 +21,10 @@ class UserModel {
     return data.slice(skip, skip + limit);
   };
 
-  findRecommendBooksByUsername = username => {
-    const user = this.findByUsername(username);
+  findRecommendBooksById = id => {
+    const bookIds = this.findById(id).books;
 
-    // Some MAGIC to have ids of recommend books goes in here
-    const bookIds = user.books;
+    // NOTE: We'll also have comment here, it was ommitted during mocking
     return Book.findByIds(bookIds);
   };
 }

@@ -18,8 +18,10 @@ class BookModel {
   };
 
   findRecommendByById = id => {
-    const userIds = this.findById(id);
-    return book;
+    // NOTE: We should have comment here too just
+    // in case I forget about it
+    const userIds = this.findById(id).recommendBy;
+    return UserModel.findByIds(userIds);
   };
 }
 
