@@ -1,7 +1,7 @@
 import React, { PropTypes as p } from "react";
 import GridFluidFourMax from "./BuildBlocks/GridFluidFourMax";
 import Figure from "./Figure";
-import data from "../data/data.json";
+import data from "../data.json";
 
 const FeaturedFigure = () => {
   const list = data.map((user, i) => (

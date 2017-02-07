@@ -5,7 +5,7 @@ import PlusIcon from "../icons/plus.svg";
 import Card from "./BuildBlocks/Card";
 import ButtonBlock from "./BuildBlocks/ButtonBlock";
 import BookShelf from "./Bookshelf";
-import data from "../data/data.json";
+import data from "../data.json";
 
 const Cover = () => (
   <div>
