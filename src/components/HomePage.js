@@ -1,10 +1,12 @@
 import React from "react";
-import App from "../components/App";
 import FeatureFigure from "../components/FeatureFigure";
+import defaultPage from "../hocs/defaultPage";
+import MetaTitle from "./MetaTitle";
 
 const HomePage = () => {
   return (
-    <App title="Trang chủ">
+    <div>
+      <MetaTitle title="Trang chủ" />
       <style jsx>
         {
           `
@@ -38,8 +40,8 @@ const HomePage = () => {
           <FeatureFigure />
         </div>
       </main>
-    </App>
+    </div>
   );
 };
 
-export default HomePage;
+export default defaultPage(HomePage);

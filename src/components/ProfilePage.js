@@ -1,6 +1,7 @@
 import React, { PropTypes as p } from "react";
+import defaultPage from "../hocs/defaultPage";
+import MetaTitle from "./MetaTitle";
 
-import App from "./App";
 import PlusIcon from "../icons/plus.svg";
 import Card from "./BuildBlocks/Card";
 import ButtonBlock from "./BuildBlocks/ButtonBlock";
@@ -58,7 +59,8 @@ Bio.propTypes = {
 
 const ProfilePage = ({ user }) => {
   return (
-    <App title={user.name}>
+    <div>
+      <MetaTitle title={user.name} />
       <main className="mw9 center pa3 pa4-ns mt5">
         {/*<Cover />*/}
         <style jsx>
@@ -87,11 +89,11 @@ const ProfilePage = ({ user }) => {
         </div>
         <BookShelf books={user.books} />
       </main>
-    </App>
+    </div>
   );
 };
 
-export default class WidthDataProfilePage extends React.Component {
+class WithDataProfilePage extends React.Component {
   static getInitialProps({ query: { username } }) {
     const user = data.find(u => u.username === username);
     return { user };
@@ -102,15 +104,18 @@ export default class WidthDataProfilePage extends React.Component {
 
     if (typeof user === "undefined") {
       return (
-        <App title="404">
+        <div>
+          <MetaTitle title="404" />
           <main
             className="flex items-center justify-center w-100 vh-100 center"
           >
             <h1 className="f1">Liên kết không tồn tại</h1>
           </main>
-        </App>
+        </div>
       );
     }
     return <ProfilePage user={this.props.user} />;
   }
 }
+
+export default defaultPage(WithDataProfilePage);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Link from "next/prefetch";
-import Logo from "./Logo";
+import Logo from "./BuildBlocks/Logo";
 import cl from "classnames";
 import MenuIcon from "../icons/menu.svg";
 
@@ -24,9 +24,7 @@ class Header extends Component {
   };
   render() {
     return (
-      <header
-        className="mb0 bg-white fixed top-0 left-0 w-100 f5 z-max shadow-5"
-      >
+      <header className="mb0 bg-white fixed top-0 left-0 w-100 f5 z-2 shadow-5">
         <style jsx>
           {
             `
@@ -95,6 +93,9 @@ class Header extends Component {
             </li>
             <li className="bb bn-ns b--light-silver pv3 w-100 w-auto-ns">
               <NavLink href="/noi-bat">Nổi bật</NavLink>
+            </li>
+            <li className="bb bn-ns b--light-silver pv3 w-100 w-auto-ns">
+              <NavLink href="/auth/sign-in">Đăng nhập</NavLink>
             </li>
           </ul>
         </nav>
