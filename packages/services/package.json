@@ -8,6 +8,7 @@
     "speakingurl": "^11.0.0"
   },
   "dependencies": {
+    "babel-preset-stage-1": "^6.22.0",
     "graphql": "^0.8.1",
     "graphql-fields": "^1.0.2",
     "graphql-server-lambda": "^0.6.0",
