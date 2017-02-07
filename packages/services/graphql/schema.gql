@@ -64,8 +64,8 @@ type Mutation {
 
 type Query {
   Book(id: String!): Book
-  allBooks(ids: [String], skip: Int, limit: Int): [Book]!
+  allBooks(skip: Int, limit: Int): [Book]!
 
   User(username: String!): User
-  allUsers(ids: [String], skip: Int, limit: Int): [User]!
+  allUsers(skip: Int, limit: Int): [User]!
 }

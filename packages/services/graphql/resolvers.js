@@ -12,8 +12,8 @@ const resolveFunctions = {
       ...allBooks.slice(skip, skip + limit)
     ],
     User: (_, { username }) => allUsers.find(u => u.username === username),
-    allUsers: (_, { skip = 0, limit = 20 }, __, info) =>
-      allUsers.slice(skip, skip + limit)
+    allUsers: (_, { skip, limit }, __, info) =>
+      
   },
   Mutation: {
     addBook: (_, { postId }) => {
