@@ -15,9 +15,8 @@ const BookModel = {
     return data.slice(skip, skip + limit);
   },
   findRecommendByById: id => {
-    // NOTE: We should have comment here too just
+    // NOTE: We should have "comment" here too just
     // in case I forget about it
-    console.log(UserModel);
     const userIds = BookModel.findById(id).recommendBy;
     return UserModel.findByIds(userIds);
   }

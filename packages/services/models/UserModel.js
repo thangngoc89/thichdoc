@@ -24,5 +24,4 @@ const UserModel = {
     return BookModel.findByIds(bookIds);
   }
 };
-
 module.exports = UserModel;

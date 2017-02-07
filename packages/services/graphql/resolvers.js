@@ -7,9 +7,13 @@ const BookModel = require("../models/BookModel");
 
 const resolveFunctions = {
   Query: {
-    Book: (_, { id }) => BookModel.findById(id),
+    Book: (_, { id }) => {
+      return BookModel.findById(id);
+    },
     allBooks: (_, { skip, limit }, __, info) => BookModel.findAll(skip, limit),
-    User: (_, { username }) => UserModel.findById(username),
+    User: (_, { username }) => {
+      return UserModel.findByUsername(username);
+    },
     allUsers: (_, { skip, limit }, __, info) => UserModel.findAll(skip, limit)
   },
   Mutation: {
@@ -19,7 +23,11 @@ const resolveFunctions = {
     recommendBy: book => BookModel.findRecommendByById(book.id)
   },
   User: {
-    recommendBooks: user => UserModel.findRecommendBooksById(user.id)
+    recommendBooks: user => {
+      console.log(user.id);
+      console.log(UserModel.findRecommendBooksById(user.id));
+      return UserModel.findRecommendBooksById(user.id);
+    }
   }
 };
 
