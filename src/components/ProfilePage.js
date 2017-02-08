@@ -3,7 +3,7 @@ import React, { PropTypes as p } from "react";
 import App from "./App";
 import PlusIcon from "../icons/plus.svg";
 import Card from "./BuildBlocks/Card";
-import ButtonBlock from "./BuildBlocks/ButtonBlock";
+import Button from "./BuildBlocks/Button";
 import BookShelf from "./Bookshelf";
 import data from "../data.json";
 
@@ -39,7 +39,7 @@ const UserInfo = ({ avatar, job, name, recommendationsCount }) => (
         {/*500 người theo dõi |*/}
         {recommendationsCount} sách
       </span>
-      <ButtonBlock action="Theo dõi" SVGIcon={PlusIcon} />
+      <Button name="Theo dõi" SVGIcon={PlusIcon} />
     </div>
   </Card>
 );

@@ -1,4 +1,5 @@
 {
+  "private": true,
   "dependencies": {
     "@mars/heroku-nextjs-build": "https://github.com/mars/heroku-nextjs-build",
     "apollo-client": "^0.8.3",
@@ -20,8 +21,8 @@
     "router": "^1.1.5"
   },
   "scripts": {
-    "dev": "next",
-    "start": "node server.js",
+    "dev": "NODE_ENV=dev node server.js",
+    "start": "NODE_ENV=production node server.js",
     "build": "next build",
     "heroku-postbuild": "heroku-nextjs-build"
   },
@@ -32,5 +33,10 @@
     "babel-preset-react": "^6.22.0",
     "jest": "^18.1.0",
     "react-test-renderer": "^15.4.2"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!styled-jsx|react-icons)"
+    ]
   }
 }

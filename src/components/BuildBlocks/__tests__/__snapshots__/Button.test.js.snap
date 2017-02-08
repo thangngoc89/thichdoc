@@ -1,0 +1,139 @@
+exports[`test All options button 1`] = `
+<a
+  className="flex justify-center items-center pa2 ba b--red border-box f5 red hover-white hover-bg-red no-underline bg-animate pointer foo w-100 h2 b bw1"
+  onClick={[Function]}>
+  <style
+    jsx={true}>
+    
+              a:hover > :global(svg), 
+              a:focus > :global(svg) {
+                fill: #fff;
+              }
+              
+  </style>
+  <span
+    className="pl1">
+    Button
+  </span>
+</a>
+`;
+
+exports[`test Block button 1`] = `
+<a
+  className="flex justify-center items-center pa2 ba b--red border-box f5 red hover-white hover-bg-red no-underline bg-animate pointer  w-100"
+  onClick={[Function]}>
+  <style
+    jsx={true}>
+    
+              a:hover > :global(svg), 
+              a:focus > :global(svg) {
+                fill: #fff;
+              }
+              
+  </style>
+  <span
+    className="pl1">
+    Button
+  </span>
+</a>
+`;
+
+exports[`test Bold button 1`] = `
+<a
+  className="flex justify-center items-center pa2 ba b--red border-box f5 red hover-white hover-bg-red no-underline bg-animate pointer  w4 b bw1"
+  onClick={[Function]}>
+  <style
+    jsx={true}>
+    
+              a:hover > :global(svg), 
+              a:focus > :global(svg) {
+                fill: #fff;
+              }
+              
+  </style>
+  <span
+    className="pl1">
+    Button
+  </span>
+</a>
+`;
+
+exports[`test Custom class names button 1`] = `
+<a
+  className="flex justify-center items-center pa2 ba b--red border-box f5 red hover-white hover-bg-red no-underline bg-animate pointer foo w4"
+  onClick={[Function]}>
+  <style
+    jsx={true}>
+    
+              a:hover > :global(svg), 
+              a:focus > :global(svg) {
+                fill: #fff;
+              }
+              
+  </style>
+  <span
+    className="pl1">
+    Button
+  </span>
+</a>
+`;
+
+exports[`test Different size button 1`] = `
+<a
+  className="flex justify-center items-center pa2 ba b--red border-box f5 red hover-white hover-bg-red no-underline bg-animate pointer  w4 h3"
+  onClick={[Function]}>
+  <style
+    jsx={true}>
+    
+              a:hover > :global(svg), 
+              a:focus > :global(svg) {
+                fill: #fff;
+              }
+              
+  </style>
+  <span
+    className="pl1">
+    Button
+  </span>
+</a>
+`;
+
+exports[`test Normal button 1`] = `
+<a
+  className="flex justify-center items-center pa2 ba b--red border-box f5 red hover-white hover-bg-red no-underline bg-animate pointer  w4"
+  onClick={[Function]}>
+  <style
+    jsx={true}>
+    
+              a:hover > :global(svg), 
+              a:focus > :global(svg) {
+                fill: #fff;
+              }
+              
+  </style>
+  <span
+    className="pl1">
+    Button
+  </span>
+</a>
+`;
+
+exports[`test Trigger button onClick 1`] = `
+<a
+  className="flex justify-center items-center pa2 ba b--red border-box f5 red hover-white hover-bg-red no-underline bg-animate pointer  w4"
+  onClick={[Function]}>
+  <style
+    jsx={true}>
+    
+              a:hover > :global(svg), 
+              a:focus > :global(svg) {
+                fill: #fff;
+              }
+              
+  </style>
+  <span
+    className="pl1">
+    Button
+  </span>
+</a>
+`;

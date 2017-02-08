@@ -1,8 +1,23 @@
 {
-  "presets": [
-    "next/babel"
-  ],
   "plugins": [
     "inline-react-svg"
-  ]
+  ],
+  "env": {
+    "dev": {
+      "presets": [
+        "next/babel"
+      ]
+    },
+    "production": {
+      "presets": [
+        "next/babel"
+      ]
+    },
+    "test": {
+      "presets": [
+        "react",
+        "latest"
+      ]
+    }
+  }
 }

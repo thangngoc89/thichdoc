@@ -45,7 +45,7 @@ const Button = (
 Button.propsTypes = {
   action: p.string.isRequired,
   SVGIcon: p.object,
-  size: p.string,
+  size: p.oneOf(["small", "med", "big"]),
   block: p.bool,
   bold: p.bool,
   onButtonClick: p.func.isRequired
