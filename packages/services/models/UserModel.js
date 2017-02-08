@@ -20,7 +20,25 @@ const UserModel = {
     const bookIds = UserModel.findById(id).books;
 
     // NOTE: We'll also have comment here, it was ommitted during mocking
-    return BookModel.findByIds(bookIds);
+    return BookModel.findByIds(bookIds).map(book => ({
+      book,
+      content: null
+    }));
+  },
+  // This thing with database would be soooo hard. Careful
+  findRecommendBooksByIds: ids => {
+    console.log("It hit me");
+    const users = UserModel.findByIds(ids);
+
+    const usersBooksList = users.map(user => BookModel.findByIds(
+      user.books
+    ).map(book => ({
+      book,
+      content: null // comment of this recommendation
+    })));
+
+    // Dataloader requires the return is a Promise<Array<value>>
+    return new Promise(resolve => resolve(usersBooksList));
   }
 };
 

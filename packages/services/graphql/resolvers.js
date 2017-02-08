@@ -4,6 +4,11 @@ const log = require("debug")("td:graphql-resolver");
 const UserModel = require("../models/UserModel");
 const BookModel = require("../models/BookModel");
 
+const DataLoader = require("dataloader");
+const recommendBooksLoader = new DataLoader(
+  ids => UserModel.findRecommendBooksByIds(ids)
+);
+
 const resolveFunctions = {
   Query: {
     Book: (_, { id }) => {
@@ -27,12 +32,7 @@ const resolveFunctions = {
     }
   },
   User: {
-    recommendBooks: user => {
-      return UserModel.findRecommendBooksById(user.id).map(book => ({
-        book,
-        content: null
-      }));
-    }
+    recommendBooks: user => recommendBooksLoader.load(user.id)
   }
 };
 
