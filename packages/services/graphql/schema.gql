@@ -62,11 +62,16 @@ type Mutation {
   addBook(name: String!, author: String!): Book
 }
 
+type QueryMeta {
+  count: Int!
+}
 
 type Query {
   Book(id: String!): Book
-  allBooks(skip: Int, limit: Int): [Book]!
-
   User(username: String!): User
-  allUsers(skip: Int, limit: Int): [User]!
+
+  allBooks(first: Int, skip: Int): [Book]!
+  allUsers(first: Int, skip: Int, first: Int): [User]!
+  allFeaturedFigures(first: Int!, skip: Int!): [User]!
+  _allFeaturedFiguresMeta: QueryMeta
 }

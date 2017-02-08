@@ -1,6 +1,7 @@
 import React from "react";
 import App from "../components/App";
-import FeatureFigure from "../components/FeatureFigure";
+import FeatureFigures from "../components/FeatureFigures";
+import withData from "../lib/withData";
 
 const HomePage = () => {
   return (
@@ -35,11 +36,11 @@ const HomePage = () => {
       <main className="mw9 center pv4 ph3 ph4-ns">
         <div>
           <h1 className="ttu f4 link black">Tủ sách nổi bật</h1>
-          <FeatureFigure />
+          <FeatureFigures />
         </div>
       </main>
     </App>
   );
 };
 
-export default HomePage;
+export default withData(HomePage);

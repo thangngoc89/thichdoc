@@ -14,11 +14,17 @@ const resolveFunctions = {
     Book: (_, { id }) => {
       return BookModel.findById(id);
     },
-    allBooks: (_, { skip, limit }, __, info) => BookModel.findAll(skip, limit),
     User: (_, { username }) => {
       return UserModel.findByUsername(username);
     },
-    allUsers: (_, { skip, limit }, __, info) => UserModel.findAll(skip, limit)
+    allBooks: (_, { first, skip }) => BookModel.findAll(skip, first),
+    allUsers: (_, { first, skip }) => UserModel.findAll(skip, first),
+    allFeaturedFigures: (_, { first, skip }) =>
+      // TODO: Implement where isFigure: true
+      UserModel.findAll(skip, first, { where: { isFigure: true } }),
+    _allFeaturedFiguresMeta: () => ({
+      count: UserModel.count()
+    })
   },
   Mutation: {
     addBook: () => {}

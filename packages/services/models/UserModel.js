@@ -27,7 +27,6 @@ const UserModel = {
   },
   // This thing with database would be soooo hard. Careful
   findRecommendBooksByIds: ids => {
-    console.log("It hit me");
     const users = UserModel.findByIds(ids);
 
     const usersBooksList = users.map(user => BookModel.findByIds(
@@ -39,6 +38,9 @@ const UserModel = {
 
     // Dataloader requires the return is a Promise<Array<value>>
     return new Promise(resolve => resolve(usersBooksList));
+  },
+  count: () => {
+    return data.length;
   }
 };
 
