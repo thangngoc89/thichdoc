@@ -1,11 +1,14 @@
 import React, { PropTypes as p } from "react";
-
 import App from "./App";
-import PlusIcon from "../icons/plus.svg";
 import Card from "./BuildBlocks/Card";
 import Button from "./BuildBlocks/Button";
-import BookShelf from "./Bookshelf";
+import BookList from "./BookList";
 import data from "../data.json";
+import CardUserInfo from "./CardUserInfo";
+
+import withData from "../lib/withData";
+import gql from "graphql-tag";
+import { graphql } from "react-apollo";
 
 const Cover = () => (
   <div>
@@ -15,36 +18,8 @@ const Cover = () => (
     />
   </div>
 );
-const UserInfo = ({ avatar, job, name, recommendationsCount }) => (
-  <Card className="flex flex-column items-center tc">
-    <figure>
-      <img
-        className="br-100 pa1 mb2 bg-white h4 w4 nt5 shadow-1"
-        src={avatar}
-      />
-    </figure>
-    <h1 className="f3 ma0">{name}</h1>
-    <p className="f5 red tracked mv0">{job}</p>
-    <div className="bottom-block mw5 w-100">
-      <style jsx>
-        {
-          `
-          .bottom-block {
-            margin-top: auto;
-          }
-        `
-        }
-      </style>
-      <span className="f6 light-silver db mv3 tc">
-        {/*500 người theo dõi |*/}
-        {recommendationsCount} sách
-      </span>
-      <Button name="Theo dõi" SVGIcon={PlusIcon} />
-    </div>
-  </Card>
-);
 
-const Bio = ({ content }) => (
+const CardBio = ({ content }) => (
   <Card>
     <h2 className="f5">Tiểu sử</h2>
     <p className="lh-copy i">
@@ -52,11 +27,12 @@ const Bio = ({ content }) => (
     </p>
   </Card>
 );
-Bio.propTypes = {
+CardBio.propTypes = {
   content: p.string.isRequired
 };
 
 const ProfilePage = ({ user }) => {
+  console.log(user);
   return (
     <App title={user.name}>
       <main className="mw9 center pa3 pa4-ns mt5">
@@ -74,43 +50,66 @@ const ProfilePage = ({ user }) => {
         </style>
         <div className="flex-l mv-100">
           <div className="flex-l items-stretch-l w5-l">
-            <UserInfo
+            <CardUserInfo
               name={user.name}
               job={user.job}
               avatar={user.avatar}
-              recommendationsCount={user.books.length}
+              recommendBooks={user.recommendBooks}
             />
           </div>
           <div className="flex-l items-stretch-l two pl4-l">
-            <Bio content={user.bio} />
+            <CardBio content={user.bio} />
           </div>
         </div>
-        <BookShelf books={user.books} />
+        <BookList recommendBooks={user.recommendBooks} />
       </main>
     </App>
   );
 };
 
-export default class WidthDataProfilePage extends React.Component {
-  static getInitialProps({ query: { username } }) {
-    const user = data.find(u => u.username === username);
-    return { user };
+const ProfilePageOr404 = ({ data: { user, loading } }) => {
+  if (typeof user === "null") {
+    return (
+      <App title="404">
+        <main className="flex items-center justify-center w-100 vh-100 center">
+          <h1 className="f1">Liên kết không tồn tại</h1>
+        </main>
+      </App>
+    );
   }
+  if (loading) {
+    <App title="404">
+      <main className="flex items-center justify-center w-100 vh-100 center">
+        Loading...
+      </main>
+    </App>;
+  }
+  return <ProfilePage user={user} />;
+};
 
-  render() {
-    const user = this.props.user;
-
-    if (typeof user === "undefined") {
-      return (
-        <App title="404">
-          <main
-            className="flex items-center justify-center w-100 vh-100 center"
-          >
-            <h1 className="f1">Liên kết không tồn tại</h1>
-          </main>
-        </App>
-      );
+const ProfilePageQuery = gql`
+  query ProfilePage($username: String!) {
+    user: User(username: $username) {
+      id
+      username
+      bio
+      name
+      job
+      avatar
+      recommendBooks {
+        ...FragmentBookListRecommendBooks
+      }
     }
-    return <ProfilePage user={this.props.user} />;
   }
-}
+  ${BookList.fragments.recommendBooks}
+`;
+
+export default withData(
+  graphql(ProfilePageQuery, {
+    options: ({ url: { query: { username } } }) => ({
+      variables: {
+        username
+      }
+    })
+  })(ProfilePageOr404)
+);
