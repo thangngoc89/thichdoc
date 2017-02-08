@@ -28,6 +28,9 @@
   "devDependencies": {
     "babel-jest": "^18.0.0",
     "babel-polyfill": "^6.22.0",
-    "jest": "^18.1.0"
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "jest": "^18.1.0",
+    "react-test-renderer": "^15.4.2"
   }
 }
