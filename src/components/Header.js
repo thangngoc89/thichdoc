@@ -91,10 +91,10 @@ class Header extends Component {
             )}
           >
             <li className="bb bn-ns b--light-silver pv3 w-100 w-auto-ns">
-              <NavLink href="/kham-pha">Khám phá</NavLink>
+              <NavLink href="/nguoi-noi-tieng">Người nổi tiếng</NavLink>
             </li>
             <li className="bb bn-ns b--light-silver pv3 w-100 w-auto-ns">
-              <NavLink href="/noi-bat">Nổi bật</NavLink>
+              <NavLink href="/sach">Sách</NavLink>
             </li>
           </ul>
         </nav>
