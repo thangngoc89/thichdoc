@@ -32,7 +32,6 @@ CardBio.propTypes = {
 };
 
 const ProfilePage = ({ user }) => {
-  console.log(user);
   return (
     <App title={user.name}>
       <main className="mw9 center pa3 pa4-ns mt5">
@@ -78,11 +77,13 @@ const ProfilePageOr404 = ({ data: { user, loading } }) => {
     );
   }
   if (loading) {
-    <App title="404">
-      <main className="flex items-center justify-center w-100 vh-100 center">
-        Loading...
-      </main>
-    </App>;
+    return (
+      <App title="404">
+        <main className="flex items-center justify-center w-100 vh-100 center">
+          Loading...
+        </main>
+      </App>
+    );
   }
   return <ProfilePage user={user} />;
 };

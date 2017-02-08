@@ -6,12 +6,12 @@ import { propType } from "graphql-anywhere";
 
 const CardBookVertical = ({ data: { author, cover, name } }) => (
   <article className="mh4 mh3-ns flex flex-column justify-end h-100">
-    <a href="" target="_blank" className="link">
+    <a href="#foo" target="_blank" className="link">
       <style jsx>
         {
           `
           img {
-            max-height: 25em;
+            max-height: 22em;
           }
           `
         }
@@ -22,13 +22,7 @@ const CardBookVertical = ({ data: { author, cover, name } }) => (
       />
     </a>
     <div className="flex flex-column justify-center pa3 bg-white h4 shadow-4">
-      <h1
-        className={cl("mb2", {
-          f3: name.length < 12,
-          f4: name.length >= 12,
-          f5: name.length >= 20
-        })}
-      >{name}</h1>
+      <h1 className="mb2 f5">{name}</h1>
       <h2 className="f5 fw4 gray mt0">{author}</h2>
     </div>
   </article>
