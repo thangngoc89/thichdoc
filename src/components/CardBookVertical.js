@@ -4,7 +4,7 @@ import { default as affiliateUrl } from "../helpers/affiliate-url.js";
 import gql from "graphql-tag";
 import { propType } from "graphql-anywhere";
 
-const CardBookVertical = ({ data: { author, cover, name } }) => (
+const CardBookHorizontal = ({ data: { author, cover, name } }) => (
   <article className="mh4 mh3-ns flex flex-column justify-end h-100">
     <a href="#foo" target="_blank" className="link">
       <style jsx>
@@ -28,7 +28,7 @@ const CardBookVertical = ({ data: { author, cover, name } }) => (
   </article>
 );
 
-CardBookVertical.fragments = {
+CardBookHorizontal.fragments = {
   book: (
     gql`
     fragment FragmentBookBook on Book {
@@ -41,7 +41,7 @@ CardBookVertical.fragments = {
   )
 };
 
-CardBookVertical.propTypes = {
-  data: propType(CardBookVertical.fragments.book).isRequired
+CardBookHorizontal.propTypes = {
+  data: propType(CardBookHorizontal.fragments.book).isRequired
 };
-export default CardBookVertical;
+export default CardBookHorizontal;

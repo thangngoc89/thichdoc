@@ -26,7 +26,7 @@ const HomePage = () => {
       <main>
         <section className="cover">
           <article
-            className="flex flex-column items-center justify-center white tc bg-black-80 h-100 w-100"
+            className="flex flex-column items-center justify-center white tc bg-black-50 h-100 w-100"
           >
             <h1 className="bold">Đọc sách thật phong cách</h1>
             <p className="tracked">
