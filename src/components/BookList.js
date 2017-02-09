@@ -2,7 +2,7 @@ import React from "react";
 import gql from "graphql-tag";
 import { propType } from "graphql-anywhere";
 import CardBookVertical from "./CardBookVertical";
-import GridFluidFourMax from "./BuildBlocks/GridFluidFourMax";
+import GridFluidThreeMax from "./BuildBlocks/GridFluidThreeMax";
 
 const BookList = ({ recommendBooks }) => {
   const list = recommendBooks.map((recommendBook, i) => (
@@ -11,7 +11,7 @@ const BookList = ({ recommendBooks }) => {
   return (
     <div className="w-100">
       <h2 className="f3 mv4">Sách khuyên đọc</h2>
-      <GridFluidFourMax list={list} />
+      <GridFluidThreeMax list={list} />
     </div>
   );
 };

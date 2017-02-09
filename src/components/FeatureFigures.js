@@ -1,12 +1,12 @@
 import React, { PropTypes as p } from "react";
-import GridFluidFourMax from "./BuildBlocks/GridFluidFourMax";
+import GridFluidThreeMax from "./BuildBlocks/GridFluidThreeMax";
 import CardFigure from "./CardFigure";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import { filter, propType } from "graphql-anywhere";
 import Button from "./BuildBlocks/Button";
 
-const FIGURES_PER_PAGE = 12;
+const FIGURES_PER_PAGE = 9;
 
 const FeaturedFigures = (
   {
@@ -25,7 +25,7 @@ const FeaturedFigures = (
   ));
   return (
     <div className="mt4">
-      <GridFluidFourMax list={list} />
+      <GridFluidThreeMax list={list} />
       {areThereMore &&
         <div className="w-100">
           <div className="w5 center">

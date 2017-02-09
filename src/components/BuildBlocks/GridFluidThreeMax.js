@@ -2,7 +2,7 @@ import React, { PropTypes as p } from "react";
 
 const GridFluidFourMax = ({ list }) => {
   // Fix the grid
-  const numberOfElementNeeded = list.length % 12;
+  const numberOfElementNeeded = list.length % 3;
   const newList = numberOfElementNeeded === 0
     ? list
     : [...list, ...Array(numberOfElementNeeded).map(() => undefined)];
@@ -34,16 +34,10 @@ const GridFluidFourMax = ({ list }) => {
             }
             
           }
-          @media (min-width: 50em) {
+          @media (min-width: 60em) {
             li {
               min-width: 30%;
               flex: 1 1 30%;            
-            }
-          }
-          @media (min-width: 65em) {
-            li {
-              min-width: 22%;
-              flex: 1 1 22%;            
             }
           }
           `

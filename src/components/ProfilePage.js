@@ -34,7 +34,7 @@ CardBio.propTypes = {
 const ProfilePage = ({ user }) => {
   return (
     <App title={user.name}>
-      <main className="mw9 center pa3 pa4-ns mt5">
+      <main className="mw8 center pv3 ph3 ph0-ns mt5">
         {/*<Cover />*/}
         <style jsx>
           {
