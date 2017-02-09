@@ -1,4 +1,4 @@
-const affiliateUrl = require("./affiliate-url");
+const affiliateUrl = require("../affiliate-url");
 
 test("return affiliate url with source url encoded", () => {
   const url = "https://tiki.vn/minh-khong-ben-nhau-nua-anh-co-ban-tam-khong-p263171.html";

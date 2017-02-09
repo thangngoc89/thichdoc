@@ -1,4 +1,4 @@
-import prune from "..";
+import prune from "../prune";
 
 test("should not prune if longer", () => {
   expect(prune("Sha blah blah", 100)).toEqual("Sha blah blah");

@@ -6,15 +6,16 @@ import { propType } from "graphql-anywhere";
 
 const CardFigure = ({ user: { name, avatar, job, username } }) => {
   return (
-    <div className="tc bg-white pb3 shadow-4 h-100">
+    <div>
       <RouteUser username={username}>
         <a className="link">
-          <img src={avatar} className="w-100 bg-light-silver dim" />
+          <div className="tc bg-white pb3 shadow-4 h-100 dim">
+            <img src={avatar} className="w-100 bg-light-silver" />
+            <h1 className="f4 mb2 black">{name}</h1>
+            {job && <p className="f5 red tracked mv0">{job}</p>}
+          </div>
         </a>
       </RouteUser>
-
-      <h1 className="f4 mb2">{name}</h1>
-      {job && <p className="f5 red tracked mv0">{job}</p>}
     </div>
   );
 };

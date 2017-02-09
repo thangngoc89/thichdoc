@@ -17,85 +17,96 @@ const NavLink = ({ href, children }) => {
 class Header extends Component {
   constructor() {
     super();
-    this.state = { hideMenu: true };
+    this.state = { showMenu: false };
   }
-  onMenuClick = () => {
-    this.setState(prevState => ({ hideMenu: !prevState.hideMenu }));
+  handleIconClick = e => {
+    e.preventDefault();
+    this.setState(prevState => ({ showMenu: !prevState.showMenu }));
   };
   render() {
     return (
-      <header
-        className="mb0 bg-white fixed top-0 left-0 w-100 f5 z-max bb b--light-gray"
+      <nav
+        className="w-100 fixed left-0 top-0 bg-white bb b--light-silver z-max"
       >
         <style jsx>
           {
             `
-        ul {
-          max-height: 50vh; 
-          transition: max-height 0.4s ease;
+        ul.topnav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
         }
 
-        .hide-ul {
-          max-height: 0;
+        ul.topnav li {float: left;}
+
+        ul.topnav li a {
+            display: inline-block;
+            color: #000;
+            text-align: center;
+            padding: 16px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 17px;
         }
-        .hide-ul > li {
-          display: none;
+        ul.topnav li:first-child a {
+          padding: 6px 24px 6px 16px;
         }
-        @media (min-width: 30em) {
-          .hide-ul {
-            max-height: 50vh;
+
+        /* light-red */
+        ul.topnav li a:hover {background-color: rgba(255,114,92, .2)}
+
+        ul.topnav li.icon {display: none;}
+        @media screen and (max-width:680px) {
+          ul.topnav li:not(:first-child) {display: none;}
+          ul.topnav li.icon {
+            float: right;
+            display: inline-block;
           }
-          .hide-ul > li {
+        }
+
+        @media screen and (max-width:680px) {
+          ul.topnav.responsive {position: relative;}
+          ul.topnav.responsive li.icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+          ul.topnav.responsive li {
+            float: none;
+            display: inline;
+          }
+          ul.topnav.responsive li a {
             display: block;
-          }
-        }
-        .flex-100 {
-          flex: 1 1 100%;
-        }
-        @media (min-width: 30em) {
-          .flex-100 {
-            flex: 1 1 auto;
+            text-align: left;
           }
         }
       `
           }
         </style>
-        <nav
-          className="mw8 flex flex-column flex-row-ns center ph3-ns relative"
-        >
-          <div className="flex flex-1 flex-100 h3 ph3 ph0-ns items-center z-1">
-            <div className="flex flex-3">
+        <div className="mw8 center">
+          <ul className={cl("topnav", { responsive: this.state.showMenu })}>
+            <li className="flex justify-center items-center">
               <Link href="/">
-                <a className="flex items-center ttu f4 link black">
-                  <Logo scale={0.7} />
+                <a>
+                  <span className="flex justify-center items-center">
+                    <Logo scale={0.2} />
+                    {" "}
+                    <span className="pl2 ttu f4 black">Thích đọc</span>
+                  </span>
                 </a>
               </Link>
-            </div>
-            <div className="dn-ns">
-              <a
-                onClick={this.onMenuClick}
-                className="flex items-center pointer"
-              >
-                <MenuIcon />
-                <span className="pl2">Menu</span>
-              </a>
-            </div>
-          </div>
-          <ul
-            className={cl(
-              "flex flex-column flex-2 flex-row-ns items-center justify-end ph0 mv0 list tc z-0",
-              { "hide-ul": this.state.hideMenu }
-            )}
-          >
-            <li className="bb bn-ns b--light-gray pv3 w-100 w-auto-ns">
-              <NavLink href="/nguoi-noi-tieng">Người nổi tiếng</NavLink>
             </li>
-            <li className="bb bn-ns b--light-gray pv3 w-100 w-auto-ns">
-              <NavLink href="/sach">Sách</NavLink>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li className="icon">
+              <a href="#" onClick={this.handleIconClick}>☰</a>
             </li>
           </ul>
-        </nav>
-      </header>
+        </div>
+      </nav>
     );
   }
 }

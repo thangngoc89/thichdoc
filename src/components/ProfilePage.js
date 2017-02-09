@@ -10,31 +10,10 @@ import withData from "../lib/withData";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 
-const Cover = () => (
-  <div>
-    <img
-      className="w-100 h4 h5-ns bg-gray shadow-4"
-      src="/static/images/abstract2.jpg"
-    />
-  </div>
-);
-
-const CardBio = ({ content }) => (
-  <Card>
-    <h2 className="f5">Tiểu sử</h2>
-    <p className="lh-copy i">
-      {content}
-    </p>
-  </Card>
-);
-CardBio.propTypes = {
-  content: p.string.isRequired
-};
-
 const ProfilePage = ({ user }) => {
   return (
     <App title={user.name}>
-      <main className="mw8 center">
+      <main>
         <UserInfo
           name={user.name}
           job={user.job}
@@ -42,9 +21,9 @@ const ProfilePage = ({ user }) => {
           recommendBooksCount={user.recommendBooks.length}
           bio={user.bio}
         />
-        <section className="w-100">
+        <section className="mw8 center w-100 ph3 pt3 pb5">
           <article>
-            <h2 className="f3 mv4 ph3">Sách khuyên đọc</h2>
+            <h2 className="f3 mv4">Sách yêu thích</h2>
             <BookList recommendBooks={user.recommendBooks} />
           </article>
         </section>
