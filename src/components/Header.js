@@ -25,7 +25,7 @@ class Header extends Component {
   render() {
     return (
       <header
-        className="mb0 bg-white fixed top-0 left-0 w-100 f5 z-max shadow-5"
+        className="mb0 bg-white fixed top-0 left-0 w-100 f5 z-max bb b--light-gray"
       >
         <style jsx>
           {
@@ -61,16 +61,13 @@ class Header extends Component {
           }
         </style>
         <nav
-          className="mw8 flex flex-column flex-row-ns center ph4-ns relative"
+          className="mw8 flex flex-column flex-row-ns center ph3-ns relative"
         >
-          <div
-            className="flex flex-1 flex-100 h3 ph3 ph0-ns items-center bb bn-ns b--light-silver"
-          >
+          <div className="flex flex-1 flex-100 h3 ph3 ph0-ns items-center z-1">
             <div className="flex flex-3">
               <Link href="/">
                 <a className="flex items-center ttu f4 link black">
-                  <Logo scale={0.2} />
-                  <span className="pl2">Thích đọc</span>
+                  <Logo scale={0.7} />
                 </a>
               </Link>
             </div>
@@ -86,14 +83,14 @@ class Header extends Component {
           </div>
           <ul
             className={cl(
-              "flex flex-column flex-2 flex-row-ns items-center justify-end ph0 mv0 list tc",
+              "flex flex-column flex-2 flex-row-ns items-center justify-end ph0 mv0 list tc z-0",
               { "hide-ul": this.state.hideMenu }
             )}
           >
-            <li className="bb bn-ns b--light-silver pv3 w-100 w-auto-ns">
+            <li className="bb bn-ns b--light-gray pv3 w-100 w-auto-ns">
               <NavLink href="/nguoi-noi-tieng">Người nổi tiếng</NavLink>
             </li>
-            <li className="bb bn-ns b--light-silver pv3 w-100 w-auto-ns">
+            <li className="bb bn-ns b--light-gray pv3 w-100 w-auto-ns">
               <NavLink href="/sach">Sách</NavLink>
             </li>
           </ul>

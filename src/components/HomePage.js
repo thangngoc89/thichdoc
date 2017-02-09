@@ -54,8 +54,8 @@ const HomePage = () => {
             </p>
           </div>
         </section>
-        <section className="mw8 center pv3 ph3 ph0-ns">
-          <article>
+        <section className="mw8 center ph0-ns">
+          <article className="pa3">
             <h1 className="ttu f4 link black">Tủ sách nổi bật</h1>
             <FeatureFigures />
           </article>

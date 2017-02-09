@@ -4,7 +4,7 @@ import Card from "./BuildBlocks/Card";
 import Button from "./BuildBlocks/Button";
 import BookList from "./BookList";
 import data from "../data.json";
-import CardUserInfo from "./CardUserInfo";
+import UserInfo from "./UserInfo";
 
 import withData from "../lib/withData";
 import gql from "graphql-tag";
@@ -34,33 +34,20 @@ CardBio.propTypes = {
 const ProfilePage = ({ user }) => {
   return (
     <App title={user.name}>
-      <main className="mw8 center pv3 ph3 ph0-ns mt5">
-        {/*<Cover />*/}
-        <style jsx>
-          {
-            `
-          @media (min-width: 30em) {
-            .two {
-              flex: 1;
-            }
-          }
-         `
-          }
-        </style>
-        <div className="flex-l mv-100">
-          <div className="flex-l items-stretch-l w5-l">
-            <CardUserInfo
-              name={user.name}
-              job={user.job}
-              avatar={user.avatar}
-              recommendBooks={user.recommendBooks}
-            />
-          </div>
-          <div className="flex-l items-stretch-l two pl4-l">
-            <CardBio content={user.bio} />
-          </div>
-        </div>
-        <BookList recommendBooks={user.recommendBooks} />
+      <main className="mw8 center">
+        <UserInfo
+          name={user.name}
+          job={user.job}
+          avatar={user.avatar}
+          recommendBooksCount={user.recommendBooks.length}
+          bio={user.bio}
+        />
+        <section className="w-100">
+          <article>
+            <h2 className="f3 mv4 ph3">Sách khuyên đọc</h2>
+            <BookList recommendBooks={user.recommendBooks} />
+          </article>
+        </section>
       </main>
     </App>
   );

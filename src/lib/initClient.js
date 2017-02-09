@@ -14,7 +14,8 @@ function createClient(headers) {
       return null;
     },
     networkInterface: createNetworkInterface({
-      uri: "http://localhost:4000/graphql",
+      // uri: "http://localhost:4000/graphql",
+      uri: "https://graphql.localtunnel.me/graphql",
       opts: {
         credentials: "same-origin"
         // Pass headers here if your graphql server requires them

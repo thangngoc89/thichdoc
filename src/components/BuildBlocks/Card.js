@@ -3,7 +3,7 @@ import React, { PropTypes as p } from "react";
 const Card = ({ wrapperTag = "section", className = "", children }) =>
   React.createElement(
     wrapperTag,
-    { className: "w-100 mv3 bg-white pa3 shadow-4 " + className },
+    { className: "w-100 mv3 bg-white pa3 " + className },
     children
   );
 

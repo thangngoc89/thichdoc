@@ -56,7 +56,8 @@ const allFeaturedFiguresQuery = gql`
 `;
 
 FeaturedFigures.propTypes = {
-  data: propType(allFeaturedFiguresQuery).isRequired,
+  // TODO: Fix propType
+  // data: propType(allFeaturedFiguresQuery).isRequired,
   actionLoadMore: p.func.isRequired
 };
 

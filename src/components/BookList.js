@@ -8,12 +8,7 @@ const BookList = ({ recommendBooks }) => {
   const list = recommendBooks.map((recommendBook, i) => (
     <CardBookVertical key={i} data={recommendBook.book} />
   ));
-  return (
-    <div className="w-100">
-      <h2 className="f3 mv4">Sách khuyên đọc</h2>
-      <GridFluidThreeMax list={list} />
-    </div>
-  );
+  return <GridFluidThreeMax list={list} />;
 };
 
 BookList.fragments = {
