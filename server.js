@@ -8,8 +8,6 @@ const log = s => {
 };
 
 const PORT = process.env.PORT || 3000;
-log(PORT);
-log(process.env.PORT);
 const app = next({
   dev: process.env.NODE_ENV !== "production",
   dir: resolve(__dirname + "/src")
@@ -29,8 +27,8 @@ app.prepare().then(() => {
 
   server.get("*", (req, res) => handle(req, res));
 
-  server.listen(3000, err => {
+  server.listen(PORT, err => {
     if (err) throw err;
-    console.log("> Ready on http://localhost:3000");
+    console.log("> Ready on http://localhost:" + PORT);
   });
 });
