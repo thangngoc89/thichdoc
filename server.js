@@ -1,11 +1,9 @@
-const { createServer } = require("http");
-const { parse } = require("url");
-const { resolve } = require("path");
+const express = require("express");
+const netjet = require("netjet");
 const next = require("next");
-const router = require("./router");
+const { resolve } = require("path");
 
 const PORT = process.env.PORT || 3000;
-
 const app = next({
   dev: process.env.NODE_ENV !== "production",
   dir: resolve(__dirname + "/src")
@@ -13,17 +11,20 @@ const app = next({
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
-  createServer((req, res) => {
-    const { pathname } = parse(req.url, true);
+  const server = express();
+  server.use(
+    netjet({
+      cache: "max"
+    })
+  );
+  server.get("/u/:username", (req, res) => {
+    return app.render(req, res, "/profile", req.params);
+  });
 
-    const profileQuery = router.profile.match(pathname);
-    if (profileQuery) {
-      app.render(req, res, "/profile", profileQuery);
-    } else {
-      handle(req, res);
-    }
-  }).listen(PORT, err => {
+  server.get("*", (req, res) => handle(req, res));
+
+  server.listen(3000, err => {
     if (err) throw err;
-    console.log("> Ready on http://localhost:" + PORT);
+    console.log("> Ready on http://localhost:3000");
   });
 });

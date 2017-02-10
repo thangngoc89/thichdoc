@@ -12,7 +12,9 @@ export default Component => class extends React.Component {
 
     const props = {
       url: { query: ctx.query, pathname: ctx.pathname },
-      ...(await Component.getInitialProps ? Component.getInitialProps(ctx) : {})
+      ...((await Component.getInitialProps)
+        ? Component.getInitialProps(ctx)
+        : {})
     };
 
     if (!process.browser) {
