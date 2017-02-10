@@ -3,7 +3,13 @@ const netjet = require("netjet");
 const next = require("next");
 const { resolve } = require("path");
 
+const log = s => {
+  console.log("=".repeat(10), s, "=".repeat(10));
+};
+
 const PORT = process.env.PORT || 3000;
+log(PORT);
+log(process.env.PORT);
 const app = next({
   dev: process.env.NODE_ENV !== "production",
   dir: resolve(__dirname + "/src")
