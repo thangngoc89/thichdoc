@@ -4,7 +4,7 @@ const { graphqlExpress } = require("graphql-server-express");
 const server = require("graphql-server-lambda");
 const schema = require("../graphql/schema");
 
-const PORT = 3000;
+const PORT = 4000;
 
 var app = express();
 
@@ -17,5 +17,9 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.options("/graphql", function(req, res) {
+  res.json({ status: "ok" });
+  res.end();
+});
 app.use("/graphql", bodyParser.json(), graphqlExpress({ schema }));
 app.listen(PORT);
