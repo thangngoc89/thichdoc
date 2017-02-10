@@ -58,7 +58,7 @@ const BookList = ({ recommendBooks }) => {
                 <p className="mt1 gray f5 lh-copy pb2 bb bw2 b--light-red">
                   bởi <span className="i">{node.book.author}</span>
                 </p>
-                <p className="gray tj f4">
+                <p className="gray tj f4 fw3">
                   Tác phẩm kinh dị trinh thám khiến người xem phải ngộp thở theo dõi và ám ảnh nhiều ngày sau khi đọc. Sự kết hợp của giải phẫu học, kiến thức trinh sát hình sự và công nghệ vi tính. Bảo đảm rằng bất kỳ ai là người đam mê trinh thám sẽ tìm đọc và mê mẫn dòng sách này của Quỷ Cổ Nữ. Sau khi đọc xong tác phẩm này, hình ảnh người đàn bà ngồi chải tóc trong ánh trăng bạc sẽ là thứ nhiều người phải hoảng loạn lúc nhớ về.
 
 

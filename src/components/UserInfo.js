@@ -23,7 +23,7 @@ const CardUserInfo = ({ avatar, job, name, bio, recommendBooksCount }) => (
     <section className="bt b--light-gray bg-white pb3">
       <article className="tc mw8 center">
         <img className="br-100 pa1 mb2 bg-white h4 w4 nt5" src={avatar} />
-        <p className="f5 lh-copy mv3 tc light-silver">
+        <p className="f5 lh-copy mv3 tc light-silver fw2">
           {recommendBooksCount} sách
         </p>
         <p className="ph3 ph5-ns lh-copy i" style={{ color: "#576366" }}>
