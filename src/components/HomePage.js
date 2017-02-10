@@ -5,7 +5,7 @@ import withData from "../lib/withData";
 
 const HomePage = () => {
   return (
-    <App title="Trang chủ">
+    <App title="Đọc sách thật phong cách">
       <style jsx>
         {
           `

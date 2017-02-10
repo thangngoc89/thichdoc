@@ -33,20 +33,20 @@ const ProfilePage = ({ user }) => {
 };
 
 const ProfilePageOr404 = ({ data: { user, loading } }) => {
+  if (loading) {
+    return (
+      <App title="Loading">
+        <main className="flex items-center justify-center w-100 vh-100 center">
+          Loading...
+        </main>
+      </App>
+    );
+  }
   if (typeof user === "null") {
     return (
       <App title="404">
         <main className="flex items-center justify-center w-100 vh-100 center">
           <h1 className="f1">Liên kết không tồn tại</h1>
-        </main>
-      </App>
-    );
-  }
-  if (loading) {
-    return (
-      <App title="404">
-        <main className="flex items-center justify-center w-100 vh-100 center">
-          Loading...
         </main>
       </App>
     );
