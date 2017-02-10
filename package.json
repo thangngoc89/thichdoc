@@ -23,6 +23,7 @@
     "dev": "NODE_ENV=dev node server.js",
     "start": "NODE_ENV=production node server.js",
     "build": "next build src",
+    "graphql": "cd packages/services && nodemon --exec 'sls offline -P 4000'",
     "heroku-postbuild": "heroku-nextjs-build"
   },
   "devDependencies": {
