@@ -36,10 +36,11 @@ const BookList = ({ recommendBooks }) => {
         `
         }
       </style>
-      {chunk(recommendBooks, 2).map(row => (
-        <section className="row">
-          {row.map((node, i) => (
+      {chunk(recommendBooks, 2).map((row, i) => (
+        <section className="row" key={i}>
+          {row.map((node, j) => (
             <article
+              key={j}
               className="column mt5 pa3 shadow-4 bg-white flex flex-column"
             >
               <div className="flex-1">
