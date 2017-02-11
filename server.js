@@ -1,14 +1,15 @@
 const express = require("express");
 const next = require("next");
 const { resolve } = require("path");
-
+const LRUCache = require("lru-cache");
 const log = s => {
   console.log("=".repeat(10), s, "=".repeat(10));
 };
 
 const PORT = process.env.PORT || 3000;
+const dev = process.env.NODE_ENV !== "production";
 const app = next({
-  dev: process.env.NODE_ENV !== "production",
+  dev,
   dir: resolve(__dirname, "src")
 });
 const handle = app.getRequestHandler();
@@ -29,7 +30,8 @@ app.prepare().then(() => {
   );
 
   server.get("/u/:username", (req, res) => {
-    return renderAndCache(req, res, "/profile", req.params);
+    const args = [req, res, "/profile", req.params];
+    return dev ? app.render(...args) : renderAndCache(...args);
   });
 
   server.get("*", (req, res) => handle(req, res));
