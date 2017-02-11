@@ -1,5 +1,4 @@
 const express = require("express");
-const netjet = require("netjet");
 const next = require("next");
 const { resolve } = require("path");
 
@@ -16,11 +15,7 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
-  server.use(
-    netjet({
-      cache: "max"
-    })
-  );
+
   server.get("/u/:username", (req, res) => {
     return app.render(req, res, "/profile", req.params);
   });

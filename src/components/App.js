@@ -8,7 +8,10 @@ export default ({ children, title }) => (
     <Head>
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="/static/css/tachyons.min.ai.css" />
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/tachyons@4.6.2/css/tachyons.min.css"
+      />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
