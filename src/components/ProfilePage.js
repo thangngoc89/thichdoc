@@ -3,8 +3,8 @@ import App from "./App";
 import Card from "./BuildBlocks/Card";
 import Button from "./BuildBlocks/Button";
 import BookList from "./BookList";
-import data from "../data.json";
 import UserInfo from "./UserInfo";
+import Spinner from "./BuildBlocks/Spinner";
 
 import withData from "../lib/withData";
 import gql from "graphql-tag";
@@ -36,8 +36,8 @@ const ProfilePageOr404 = ({ data: { user, loading } }) => {
   if (loading) {
     return (
       <App title="Loading">
-        <main className="flex items-center justify-center w-100 vh-100 center">
-          Loading...
+        <main className="flex items-center justify-center w-100 vh-75 center">
+          <Spinner />
         </main>
       </App>
     );
