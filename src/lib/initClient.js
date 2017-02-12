@@ -3,6 +3,13 @@ import ApolloClient, { createNetworkInterface } from "apollo-client";
 let apolloClient = null;
 
 function createClient(headers) {
+  let uri;
+  if (process.env.NODE_ENV === "production") {
+    uri = "https://thichdoc-graphql.now.sh/graphql";
+  } else {
+    uri = "http://localhost:4000/graphql";
+  }
+
   return new ApolloClient({
     ssrMode: !process.browser,
     dataIdFromObject: result => {
@@ -14,8 +21,7 @@ function createClient(headers) {
       return null;
     },
     networkInterface: createNetworkInterface({
-      // uri: "http://localhost:4000/graphql",
-      uri: "https://thichdoc-graphql.now.sh/graphql",
+      uri,
       opts: {
         credentials: "same-origin"
         // Pass headers here if your graphql server requires them
