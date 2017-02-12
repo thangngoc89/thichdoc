@@ -43,7 +43,7 @@ const BookList = ({ recommendBooks }) => {
               key={j}
               className="column mt5 pa3 shadow-4 bg-white flex flex-column"
             >
-              <div className="flex-1">
+              <div className="flex-auto">
                 <img
                   className="w4 shadow-5 nt5 mr3 mb1"
                   style={{ float: "left" }}

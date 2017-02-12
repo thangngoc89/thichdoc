@@ -59,44 +59,6 @@ export default ({ children, title }) => (
         padding: 0;
         background: ${d.colorSilver}
       }
-      .flex-1 {
-        flex: 1 1 auto;
-        -ms-flex:1 1 1 auto;
-        -webkit-box-flex:1 1 autp;
-        -webkit-flex:1 1 auto;
-      }
-      .flex-2 {
-        flex: 2 2 auto;
-        -ms-flex:2 2 auto;
-        -webkit-box-flex:2 2 auto;
-        -webkit-flex:2 2 auto;
-      }
-      .flex-3 {
-        flex: 3 3 auto;
-        -ms-flex:3 3 auto;
-        -webkit-box-flex:3 3 auto;
-        -webkit-flex:3 3 auto;
-      }
-      @media (min-width: 30em) {
-        .flex-1-ns {
-          flex: 1 1 auto;
-          -ms-flex:1 1 1 auto;
-          -webkit-box-flex:1 1 autp;
-          -webkit-flex:1 1 auto;
-        }
-        .flex-2-ns {
-          flex: 2 2 auto;
-          -ms-flex:2 2 auto;
-          -webkit-box-flex:2 2 auto;
-          -webkit-flex:2 2 auto;
-        }
-        .flex-3-ns {
-          flex: 3 3 auto;
-          -ms-flex:3 3 auto;
-          -webkit-box-flex:3 3 auto;
-          -webkit-flex:3 3 auto;
-        }
-      }
       .fade-appear {
         opacity: 0.01;
       }
