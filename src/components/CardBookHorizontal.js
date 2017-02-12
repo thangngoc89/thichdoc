@@ -1,5 +1,4 @@
 import React from "react";
-import cl from "classnames";
 import { default as affiliateUrl } from "../helpers/affiliate-url.js";
 import gql from "graphql-tag";
 import { propType } from "graphql-anywhere";
