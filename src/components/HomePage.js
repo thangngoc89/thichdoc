@@ -14,7 +14,7 @@ const HomePage = () => {
           z-index: 0;
           position: relative;
           width: 100%;
-          height: 30em;
+          height: 25em;
           background-image:url(/static/images/book-bg.jpg);
         }
 
@@ -31,7 +31,11 @@ const HomePage = () => {
           z-index: 1;
           bottom: 0;
         }
-    
+        @media (min-width: 30em) {
+          .hero {
+            height: 30em;
+          }
+        }
         @media (min-width: 100em) {
           .hero {
             height: 50em;
@@ -46,7 +50,7 @@ const HomePage = () => {
       <main>
         <section className="hero cover">
           <div
-            className="flex flex-column items-center justify-center white tc h-100 w-100 bg-black-50 ph3 ph4-ns"
+            className="flex flex-column items-center justify-center white tc h-100 w-100 bg-black-50 ph3 ph4-ns pb5"
           >
             <h1 className="bold">Đọc sách thật phong cách</h1>
             <p className="tracked">
