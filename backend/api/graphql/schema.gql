@@ -10,32 +10,32 @@ type User {
   # Direct URL to user's avatar images
   avatar: String
   # Is this a public figure?
-  isFigure: Boolean!
+  #isFigure: Boolean!
   # Was this public figure claim their account?
-  isFigureClaimed: Boolean!
+  #isFigureClaimed: Boolean!
   tikiLink: String
 
   recommendBooks: [RecommendBooks]
 
-  createdAt: DateTime
-  updatedAt: DateTime
+  createdAt: String
+  updatedAt: String
 }
-
+type BookLinks {
+  tiki: String
+  amz: String
+  vnb: String
+}
 type Book {
   # A book id
   id: String!
+  # Book slug for display in url
   slug: String!
   name: String!
   author: String!
   abstract: String
   cover: String!
-
-  linkAmz: String
-  linkTiki: String
-  linkVnbook: String
-
+  links: BookLinks!
   recommendBy: [RecommendBy]
-
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -66,12 +66,23 @@ type QueryMeta {
   count: Int!
 }
 
+type Pagination {
+  offset: Int!, 
+  limit: Int!
+  rowCount: Int!
+  pageCount: Int!
+}
+
+type UsersQueryOutput {
+  edges: [User]!
+  pagination: Pagination
+}
+
 type Query {
   Book(id: String!): Book
   User(username: String!): User
 
-  allBooks(first: Int, skip: Int): [Book]!
-  allUsers(first: Int, skip: Int, first: Int): [User]!
-  allFeaturedFigures(first: Int!, skip: Int!): [User]!
-  _allFeaturedFiguresMeta: QueryMeta
+  allBooks(offset: Int, limit: Int): [Book]!
+  allUsers(offset: Int!, limit: Int!, orderBy: String): UsersQueryOutput!
+  allFeaturedFigures(offset: Int!, limit: Int!): UsersQueryOutput!
 }

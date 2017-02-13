@@ -3,6 +3,19 @@
     "inline-react-svg"
   ],
   "env": {
+    "backend:dev": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ],
+        "stage-2"
+      ]
+    },
     "dev": {
       "presets": [
         "next/babel"
@@ -15,8 +28,16 @@
     },
     "test": {
       "presets": [
-        "react",
-        "latest"
+        [
+          "env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ],
+        "stage-2",
+        "react"
       ]
     }
   }

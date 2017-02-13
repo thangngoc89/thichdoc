@@ -5,7 +5,7 @@ let apolloClient = null;
 function createClient(headers) {
   let uri;
   if (process.env.NODE_ENV === "production") {
-    uri = "https://thichdoc-graphql.now.sh/graphql";
+    uri = "https://thichdoc.com/graphql";
   } else {
     uri = "http://localhost:4000/graphql";
   }

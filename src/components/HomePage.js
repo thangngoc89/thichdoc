@@ -15,7 +15,17 @@ const HomePage = () => {
           position: relative;
           width: 100%;
           height: 25em;
-          background-image:url(/static/images/book-bg.jpg);
+          background-image:url(/static/images/bg-small.jpg);
+        }
+        @media (min-width: 30em) {
+          .hero {
+            background-image:url(/static/images/bg-med.jpg);
+          }
+        }
+        @media (min-width: 60em) {
+          .hero {
+            background-image:url(/static/images/bg-large.jpg);
+          }
         }
 
         .hero::after {

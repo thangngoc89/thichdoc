@@ -21,26 +21,37 @@ const ssrCache = new LRUCache({
   ) // 1hour
 });
 
-app.prepare().then(() => {
-  const server = express();
+app
+  .prepare()
+  .then(() => {
+    const server = express();
 
-  server.use(
-    "/static",
-    express.static(resolve(__dirname, "src", "static"), { maxAge: "365d" })
-  );
+    server.use(
+      "/static",
+      express.static(resolve(__dirname, "src", "static"), { maxAge: "365d" })
+    );
 
-  server.get("/u/:username", (req, res) => {
-    const args = [req, res, "/profile", req.params];
-    return dev ? app.render(...args) : renderAndCache(...args);
+    // Mount graphql server for production env
+    if (process.env.NODE_ENV === "production") {
+      const graphqlServer = require("./dist/api").default;
+      graphqlServer(server);
+    }
+
+    server.get("/u/:username", (req, res) => {
+      const args = [req, res, "/profile", req.params];
+      return dev ? app.render(...args) : renderAndCache(...args);
+    });
+
+    server.get("*", (req, res) => handle(req, res));
+
+    server.listen(PORT, err => {
+      if (err) throw err;
+      console.log("> Ready on http://localhost:" + PORT);
+    });
+  })
+  .catch(err => {
+    console.error(err);
   });
-
-  server.get("*", (req, res) => handle(req, res));
-
-  server.listen(PORT, err => {
-    if (err) throw err;
-    console.log("> Ready on http://localhost:" + PORT);
-  });
-});
 
 function renderAndCache(req, res, pagePath, queryParams) {
   // If we have a page in the cache, let's serve it
