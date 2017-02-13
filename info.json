@@ -1,0 +1,577 @@
+{
+  "fieldName": "recommendBooks",
+  "fieldNodes": [
+    {
+      "kind": "Field",
+      "alias": null,
+      "name": {
+        "kind": "Name",
+        "value": "recommendBooks",
+        "loc": {
+          "start": 97,
+          "end": 111
+        }
+      },
+      "arguments": [],
+      "directives": [],
+      "selectionSet": {
+        "kind": "SelectionSet",
+        "selections": [
+          {
+            "kind": "Field",
+            "alias": null,
+            "name": {
+              "kind": "Name",
+              "value": "content",
+              "loc": {
+                "start": 122,
+                "end": 129
+              }
+            },
+            "arguments": [],
+            "directives": [],
+            "selectionSet": null,
+            "loc": {
+              "start": 122,
+              "end": 129
+            }
+          },
+          {
+            "kind": "Field",
+            "alias": null,
+            "name": {
+              "kind": "Name",
+              "value": "book",
+              "loc": {
+                "start": 138,
+                "end": 142
+              }
+            },
+            "arguments": [],
+            "directives": [],
+            "selectionSet": {
+              "kind": "SelectionSet",
+              "selections": [
+                {
+                  "kind": "Field",
+                  "alias": null,
+                  "name": {
+                    "kind": "Name",
+                    "value": "name",
+                    "loc": {
+                      "start": 155,
+                      "end": 159
+                    }
+                  },
+                  "arguments": [],
+                  "directives": [],
+                  "selectionSet": null,
+                  "loc": {
+                    "start": 155,
+                    "end": 159
+                  }
+                },
+                {
+                  "kind": "Field",
+                  "alias": null,
+                  "name": {
+                    "kind": "Name",
+                    "value": "author",
+                    "loc": {
+                      "start": 170,
+                      "end": 176
+                    }
+                  },
+                  "arguments": [],
+                  "directives": [],
+                  "selectionSet": null,
+                  "loc": {
+                    "start": 170,
+                    "end": 176
+                  }
+                },
+                {
+                  "kind": "Field",
+                  "alias": null,
+                  "name": {
+                    "kind": "Name",
+                    "value": "abstract",
+                    "loc": {
+                      "start": 187,
+                      "end": 195
+                    }
+                  },
+                  "arguments": [],
+                  "directives": [],
+                  "selectionSet": null,
+                  "loc": {
+                    "start": 187,
+                    "end": 195
+                  }
+                },
+                {
+                  "kind": "Field",
+                  "alias": null,
+                  "name": {
+                    "kind": "Name",
+                    "value": "cover",
+                    "loc": {
+                      "start": 206,
+                      "end": 211
+                    }
+                  },
+                  "arguments": [],
+                  "directives": [],
+                  "selectionSet": null,
+                  "loc": {
+                    "start": 206,
+                    "end": 211
+                  }
+                }
+              ],
+              "loc": {
+                "start": 143,
+                "end": 221
+              }
+            },
+            "loc": {
+              "start": 138,
+              "end": 221
+            }
+          }
+        ],
+        "loc": {
+          "start": 112,
+          "end": 229
+        }
+      },
+      "loc": {
+        "start": 97,
+        "end": 229
+      }
+    }
+  ],
+  "returnType": "[RecommendBooks]",
+  "parentType": "User",
+  "path": {
+    "prev": {
+      "prev": {
+        "prev": {
+          "key": "allFeaturedFigures"
+        },
+        "key": "edges"
+      },
+      "key": 9
+    },
+    "key": "recommendBooks"
+  },
+  "schema": {
+    "_queryType": "Query",
+    "_mutationType": "Mutation",
+    "_subscriptionType": null,
+    "_directives": [
+      {
+        "name": "skip",
+        "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
+        "locations": [
+          "FIELD",
+          "FRAGMENT_SPREAD",
+          "INLINE_FRAGMENT"
+        ],
+        "args": [
+          {
+            "name": "if",
+            "description": "Skipped when true.",
+            "type": "Boolean!"
+          }
+        ]
+      },
+      {
+        "name": "include",
+        "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
+        "locations": [
+          "FIELD",
+          "FRAGMENT_SPREAD",
+          "INLINE_FRAGMENT"
+        ],
+        "args": [
+          {
+            "name": "if",
+            "description": "Included when true.",
+            "type": "Boolean!"
+          }
+        ]
+      },
+      {
+        "name": "deprecated",
+        "description": "Marks an element of a GraphQL schema as no longer supported.",
+        "locations": [
+          "FIELD_DEFINITION",
+          "ENUM_VALUE"
+        ],
+        "args": [
+          {
+            "name": "reason",
+            "description": "Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted in [Markdown](https://daringfireball.net/projects/markdown/).",
+            "type": "String",
+            "defaultValue": "No longer supported"
+          }
+        ]
+      }
+    ],
+    "_typeMap": {
+      "Query": "Query",
+      "String": "String",
+      "Book": "Book",
+      "BookLinks": "BookLinks",
+      "RecommendBy": "RecommendBy",
+      "User": "User",
+      "RecommendBooks": "RecommendBooks",
+      "DateTime": "DateTime",
+      "Int": "Int",
+      "UsersQueryOutput": "UsersQueryOutput",
+      "Pagination": "Pagination",
+      "Mutation": "Mutation",
+      "__Schema": "__Schema",
+      "__Type": "__Type",
+      "__TypeKind": "__TypeKind",
+      "Boolean": "Boolean",
+      "__Field": "__Field",
+      "__InputValue": "__InputValue",
+      "__EnumValue": "__EnumValue",
+      "__Directive": "__Directive",
+      "__DirectiveLocation": "__DirectiveLocation",
+      "QueryMeta": "QueryMeta"
+    },
+    "_implementations": {}
+  },
+  "fragments": {},
+  "operation": {
+    "kind": "OperationDefinition",
+    "operation": "query",
+    "name": null,
+    "variableDefinitions": null,
+    "directives": [],
+    "selectionSet": {
+      "kind": "SelectionSet",
+      "selections": [
+        {
+          "kind": "Field",
+          "alias": null,
+          "name": {
+            "kind": "Name",
+            "value": "allFeaturedFigures",
+            "loc": {
+              "start": 4,
+              "end": 22
+            }
+          },
+          "arguments": [
+            {
+              "kind": "Argument",
+              "name": {
+                "kind": "Name",
+                "value": "offset",
+                "loc": {
+                  "start": 23,
+                  "end": 29
+                }
+              },
+              "value": {
+                "kind": "IntValue",
+                "value": "0",
+                "loc": {
+                  "start": 30,
+                  "end": 31
+                }
+              },
+              "loc": {
+                "start": 23,
+                "end": 31
+              }
+            },
+            {
+              "kind": "Argument",
+              "name": {
+                "kind": "Name",
+                "value": "limit",
+                "loc": {
+                  "start": 33,
+                  "end": 38
+                }
+              },
+              "value": {
+                "kind": "IntValue",
+                "value": "10",
+                "loc": {
+                  "start": 39,
+                  "end": 41
+                }
+              },
+              "loc": {
+                "start": 33,
+                "end": 41
+              }
+            }
+          ],
+          "directives": [],
+          "selectionSet": {
+            "kind": "SelectionSet",
+            "selections": [
+              {
+                "kind": "Field",
+                "alias": null,
+                "name": {
+                  "kind": "Name",
+                  "value": "edges",
+                  "loc": {
+                    "start": 49,
+                    "end": 54
+                  }
+                },
+                "arguments": [],
+                "directives": [],
+                "selectionSet": {
+                  "kind": "SelectionSet",
+                  "selections": [
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "id",
+                        "loc": {
+                          "start": 62,
+                          "end": 64
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 62,
+                        "end": 64
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "name",
+                        "loc": {
+                          "start": 71,
+                          "end": 75
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 71,
+                        "end": 75
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "username",
+                        "loc": {
+                          "start": 82,
+                          "end": 90
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": null,
+                      "loc": {
+                        "start": 82,
+                        "end": 90
+                      }
+                    },
+                    {
+                      "kind": "Field",
+                      "alias": null,
+                      "name": {
+                        "kind": "Name",
+                        "value": "recommendBooks",
+                        "loc": {
+                          "start": 97,
+                          "end": 111
+                        }
+                      },
+                      "arguments": [],
+                      "directives": [],
+                      "selectionSet": {
+                        "kind": "SelectionSet",
+                        "selections": [
+                          {
+                            "kind": "Field",
+                            "alias": null,
+                            "name": {
+                              "kind": "Name",
+                              "value": "content",
+                              "loc": {
+                                "start": 122,
+                                "end": 129
+                              }
+                            },
+                            "arguments": [],
+                            "directives": [],
+                            "selectionSet": null,
+                            "loc": {
+                              "start": 122,
+                              "end": 129
+                            }
+                          },
+                          {
+                            "kind": "Field",
+                            "alias": null,
+                            "name": {
+                              "kind": "Name",
+                              "value": "book",
+                              "loc": {
+                                "start": 138,
+                                "end": 142
+                              }
+                            },
+                            "arguments": [],
+                            "directives": [],
+                            "selectionSet": {
+                              "kind": "SelectionSet",
+                              "selections": [
+                                {
+                                  "kind": "Field",
+                                  "alias": null,
+                                  "name": {
+                                    "kind": "Name",
+                                    "value": "name",
+                                    "loc": {
+                                      "start": 155,
+                                      "end": 159
+                                    }
+                                  },
+                                  "arguments": [],
+                                  "directives": [],
+                                  "selectionSet": null,
+                                  "loc": {
+                                    "start": 155,
+                                    "end": 159
+                                  }
+                                },
+                                {
+                                  "kind": "Field",
+                                  "alias": null,
+                                  "name": {
+                                    "kind": "Name",
+                                    "value": "author",
+                                    "loc": {
+                                      "start": 170,
+                                      "end": 176
+                                    }
+                                  },
+                                  "arguments": [],
+                                  "directives": [],
+                                  "selectionSet": null,
+                                  "loc": {
+                                    "start": 170,
+                                    "end": 176
+                                  }
+                                },
+                                {
+                                  "kind": "Field",
+                                  "alias": null,
+                                  "name": {
+                                    "kind": "Name",
+                                    "value": "abstract",
+                                    "loc": {
+                                      "start": 187,
+                                      "end": 195
+                                    }
+                                  },
+                                  "arguments": [],
+                                  "directives": [],
+                                  "selectionSet": null,
+                                  "loc": {
+                                    "start": 187,
+                                    "end": 195
+                                  }
+                                },
+                                {
+                                  "kind": "Field",
+                                  "alias": null,
+                                  "name": {
+                                    "kind": "Name",
+                                    "value": "cover",
+                                    "loc": {
+                                      "start": 206,
+                                      "end": 211
+                                    }
+                                  },
+                                  "arguments": [],
+                                  "directives": [],
+                                  "selectionSet": null,
+                                  "loc": {
+                                    "start": 206,
+                                    "end": 211
+                                  }
+                                }
+                              ],
+                              "loc": {
+                                "start": 143,
+                                "end": 221
+                              }
+                            },
+                            "loc": {
+                              "start": 138,
+                              "end": 221
+                            }
+                          }
+                        ],
+                        "loc": {
+                          "start": 112,
+                          "end": 229
+                        }
+                      },
+                      "loc": {
+                        "start": 97,
+                        "end": 229
+                      }
+                    }
+                  ],
+                  "loc": {
+                    "start": 54,
+                    "end": 235
+                  }
+                },
+                "loc": {
+                  "start": 49,
+                  "end": 235
+                }
+              }
+            ],
+            "loc": {
+              "start": 43,
+              "end": 239
+            }
+          },
+          "loc": {
+            "start": 4,
+            "end": 239
+          }
+        }
+      ],
+      "loc": {
+        "start": 0,
+        "end": 244
+      }
+    },
+    "loc": {
+      "start": 0,
+      "end": 244
+    }
+  },
+  "variableValues": {}
+}

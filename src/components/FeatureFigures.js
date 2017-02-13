@@ -12,16 +12,15 @@ const FIGURES_PER_PAGE = 9;
 const FeaturedFigures = (
   {
     actionLoadMore,
-    data: { loading, allFeaturedFigures, _allFeaturedFiguresMeta }
+    data: { loading, allFeaturedFigures }
   }
 ) => {
   if (loading) {
     return <Spinner />;
   }
-
-  const areThereMore = _allFeaturedFiguresMeta.count >
-    allFeaturedFigures.length;
-  const list = allFeaturedFigures.map(user => (
+  const areThereMore = allFeaturedFigures.pagination.rowCount >
+    allFeaturedFigures.edges.length;
+  const list = allFeaturedFigures.edges.map(user => (
     <CardFigure key={user.id} user={filter(CardFigure.fragments.user, user)} />
   ));
   return (
@@ -44,13 +43,15 @@ const FeaturedFigures = (
 };
 
 const allFeaturedFiguresQuery = gql`
-  query allFeaturedFigures($first: Int!, $skip: Int!) {
-    allFeaturedFigures(first: $first, skip: $skip) {
-      id
-      ...FragmentCardFigureUser
-    }
-    _allFeaturedFiguresMeta {
-      count
+  query allFeaturedFigures($offset: Int!, $limit: Int!) {
+    allFeaturedFigures(offset: $offset, limit: $limit) {
+      edges {
+        id
+        ...FragmentCardFigureUser
+      }
+      pagination {
+        rowCount
+      }
     }
   }
   ${CardFigure.fragments.user}
@@ -65,8 +66,8 @@ FeaturedFigures.propTypes = {
 export default graphql(allFeaturedFiguresQuery, {
   options: {
     variables: {
-      skip: 0,
-      first: FIGURES_PER_PAGE
+      offset: 0,
+      limit: FIGURES_PER_PAGE
     }
   },
   props: ({ data }) => ({
@@ -74,7 +75,7 @@ export default graphql(allFeaturedFiguresQuery, {
     actionLoadMore: () => {
       return data.fetchMore({
         variables: {
-          skip: data.allFeaturedFigures.length
+          offset: data.allFeaturedFigures.edges.length
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult.data) {
@@ -82,10 +83,13 @@ export default graphql(allFeaturedFiguresQuery, {
           }
           return Object.assign({}, previousResult, {
             // Append the new users results to the old one
-            allFeaturedFigures: [
-              ...previousResult.allFeaturedFigures,
-              ...fetchMoreResult.data.allFeaturedFigures
-            ]
+            allFeaturedFigures: {
+              edges: [
+                ...previousResult.allFeaturedFigures.edges,
+                ...fetchMoreResult.data.allFeaturedFigures.edges
+              ],
+              pagination: fetchMoreResult.data.allFeaturedFigures.pagination
+            }
           });
         }
       });
