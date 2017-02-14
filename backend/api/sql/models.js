@@ -51,6 +51,15 @@ export const Book = bookshelf.Model.extend({
   tableName: "books",
   users: function() {
     return this.belongsToMany(User, "reviews").withPivot(["content"]);
+  },
+  getById: function(id) {
+    console.log("model", id);
+    return this.where({ id: id }).fetch().then(res => {
+      if (res) {
+        return res.toJSON();
+      }
+      return null;
+    });
   }
 });
 

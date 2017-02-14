@@ -5,7 +5,7 @@ import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import { filter, propType } from "graphql-anywhere";
 import Button from "./BuildBlocks/Button";
-import Spinner from "./BuildBlocks/Spinner";
+import Spinner from "./fragments/Spinner";
 
 const FIGURES_PER_PAGE = 9;
 

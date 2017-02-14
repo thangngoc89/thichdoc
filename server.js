@@ -16,9 +16,7 @@ const handle = app.getRequestHandler();
 
 const ssrCache = new LRUCache({
   max: 100,
-  maxAge: (
-    1000 * 60 * 60
-  ) // 1hour
+  maxAge: 1000 * 60 * 60 // 1hour
 });
 
 app
@@ -39,6 +37,10 @@ app
 
     server.get("/u/:username", (req, res) => {
       const args = [req, res, "/profile", req.params];
+      return dev ? app.render(...args) : renderAndCache(...args);
+    });
+    server.get("/b/:id/:slug?", (req, res) => {
+      const args = [req, res, "/book", req.params];
       return dev ? app.render(...args) : renderAndCache(...args);
     });
 

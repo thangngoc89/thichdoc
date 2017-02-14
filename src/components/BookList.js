@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 import { propType } from "graphql-anywhere";
 import CardBookVertical from "./CardBookVertical";
 import chunk from "../helpers/chunk";
+import { RouteBook } from "./fragments/Route";
 
 const BookList = ({ recommendBooks }) => {
   const list = recommendBooks.map((recommendBook, i) => (
@@ -44,18 +45,22 @@ const BookList = ({ recommendBooks }) => {
               className="column mt5 pa3 shadow-4 bg-white flex flex-column"
             >
               <div className="flex-auto">
-                <img
-                  className="w4 shadow-5 nt5 mr3 mb1"
-                  style={{ float: "left" }}
-                  width="8rem"
-                  height="auto"
-                  src={node.book.cover}
-                  title={node.book.name}
-                  alt={node.book.name}
-                />
-                <h3 className="fs-normal mv0">
-                  {node.book.name}
-                </h3>
+                <RouteBook id={node.book.id} slug={node.book.slug}>
+                  <a className="link black">
+                    <img
+                      className="w4 shadow-5 nt5 mr3 mb1"
+                      style={{ float: "left" }}
+                      width="8rem"
+                      height="auto"
+                      src={node.book.cover}
+                      title={node.book.name}
+                      alt={node.book.name}
+                    />
+                    <h3 className="fs-normal mv0">
+                      {node.book.name}
+                    </h3>
+                  </a>
+                </RouteBook>
                 <p className="mt1 gray f5 lh-copy pb2 bb bw2 b--light-red">
                   bởi <span className="i">{node.book.author}</span>
                 </p>
@@ -85,10 +90,13 @@ BookList.fragments = {
     fragment FragmentBookListRecommendBooks on RecommendBooks {
       content
       book {
-        ...FragmentBookBook
+        id
+        slug
+        author
+        cover
+        name
       }
     }
-    ${CardBookVertical.fragments.book}
   `
   )
 };

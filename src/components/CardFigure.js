@@ -1,6 +1,6 @@
 import React, { PropTypes as p } from "react";
 import ImageLazyLoad from "./ImageLazyLoad";
-import { RouteUser } from "./BuildBlocks/Route";
+import { RouteUser } from "./fragments/Route";
 import gql from "graphql-tag";
 import { propType } from "graphql-anywhere";
 

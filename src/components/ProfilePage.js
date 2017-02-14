@@ -4,7 +4,9 @@ import Card from "./BuildBlocks/Card";
 import Button from "./BuildBlocks/Button";
 import BookList from "./BookList";
 import UserInfo from "./UserInfo";
-import Spinner from "./BuildBlocks/Spinner";
+
+import Page404 from "./fragments/Page404";
+import PageLoading from "./fragments/PageLoading";
 
 import withData from "../lib/withData";
 import gql from "graphql-tag";
@@ -34,22 +36,10 @@ const ProfilePage = ({ user }) => {
 
 const ProfilePageOr404 = ({ data: { user, loading } }) => {
   if (loading) {
-    return (
-      <App title="Loading">
-        <main className="flex items-center justify-center w-100 vh-75 center">
-          <Spinner />
-        </main>
-      </App>
-    );
+    return <PageLoading />;
   }
   if (typeof user === "null") {
-    return (
-      <App title="404">
-        <main className="flex items-center justify-center w-100 vh-100 center">
-          <h1 className="f1">Liên kết không tồn tại</h1>
-        </main>
-      </App>
-    );
+    return <Page404 />;
   }
   return <ProfilePage user={user} />;
 };

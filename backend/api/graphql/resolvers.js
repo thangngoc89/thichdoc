@@ -10,8 +10,8 @@ const BookModel = {};
 
 const resolveFunctions = {
   Query: {
-    Book: (_, { id }) => {
-      return new Book().where("id", id);
+    Book: (underfined_, { id }) => {
+      return new Book().getById(id);
     },
     User: (underfined, { username }) => {
       return new User().getByUsername(username);
@@ -20,7 +20,7 @@ const resolveFunctions = {
     allUsers: (underfined, { offset, limit, orderBy = "createdAt" }) => {
       return new User().allUsers(offset, limit, orderBy);
     },
-    allFeaturedFigures: (_, { offset, limit, orderBy }) => {
+    allFeaturedFigures: (underfined, { offset, limit, orderBy }) => {
       return new User().allUsers(offset, limit, "createdAt");
     }
   },
