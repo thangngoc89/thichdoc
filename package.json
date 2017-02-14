@@ -31,11 +31,14 @@
     "redux-thunk": "^2.2.0",
     "speakingurl": "^11.0.0"
   },
+  "engines": {
+    "node": "^7.0.0"
+  },
   "scripts": {
     "dev": "NODE_ENV=dev node server.js",
     "start": "NODE_ENV=production node server.js",
     "build": "yarn b:build && next build src",
-    "heroku-postbuild": "cd backend && knex migrate:latest && heroku-nextjs-build",
+    "heroku-postbuild": "cd backend && knex migrate:latest && node --harmony seeds/import_from_tiki.js && cd .. && heroku-nextjs-build",
     "b:db:shell": "docker exec -it td-db psql -U postgres",
     "b:db:refresh": "cd backend && knex migrate:rollback && knex migrate:latest && node --harmony seeds/import_from_tiki.js",
     "b:dev": "NODE_ENV=backend:dev nodemon -w backend backend/api/server.js --exec babel-node",
