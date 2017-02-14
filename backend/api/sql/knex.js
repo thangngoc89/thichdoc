@@ -1,6 +1,7 @@
 import knex from "knex";
-import { development } from "../../knexfile";
+import knexfile from "../../knexfile";
 
-// Eventually we want to wrap Knex to do some batching and caching, but for
-// now this will do since we know none of our queries need it
-export default knex(development);
+const config = process.env.NODE_ENV === "production"
+  ? knexfile.production
+  : knexfile.development;
+export default knex(config);

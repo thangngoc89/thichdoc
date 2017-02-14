@@ -6,11 +6,14 @@ function createClient(headers) {
   let uri;
   if (process.env.NODE_ENV === "production") {
     uri = "https://thichdoc.com/graphql";
+  } else if (process.env.NODE_ENV === "production" && !process.browser) {
+    // Weird trick proxy the request back to this server
+    uri = "https://td-proxy.now.sh/graphql";
   } else {
     uri = "http://localhost:4000/graphql";
   }
 
-  return new ApolloClient({
+  const options = {
     ssrMode: !process.browser,
     dataIdFromObject: result => {
       if (result.id && result.__typename) {
@@ -27,7 +30,9 @@ function createClient(headers) {
         // Pass headers here if your graphql server requires them
       }
     })
-  });
+  };
+
+  return new ApolloClient(options);
 }
 
 export const initClient = headers => {
