@@ -41,7 +41,7 @@
     "dev": "NODE_ENV=dev node server.js",
     "start": "NODE_ENV=production node server.js",
     "build": "next build src",
-    "heroku-postbuild": "yarn b:db:refresh && yarn b:build && heroku-nextjs-build",
+    "heroku-postbuild": "yarn b:db:refresh && NODE_ENV=development yarn install && yarn b:build && heroku-nextjs-build",
     "b:db:shell": "docker exec -it td-db psql -U postgres",
     "b:db:refresh": "cd backend && knex migrate:rollback && knex migrate:latest && node --harmony seeds/import_from_tiki.js",
     "b:dev": "NODE_ENV=backend:dev nodemon -w backend backend/api/server.js --exec babel-node",
