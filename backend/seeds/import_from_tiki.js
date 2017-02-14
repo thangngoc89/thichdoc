@@ -79,10 +79,11 @@ const main = async () => {
     console.log("Inserted", reviewsData.length, "reviews");
 
     console.log("Done");
-    process.exit(0);
   } catch (err) {
     console.error(err);
   }
 };
 
-main();
+main().then(() => {
+  process.exit(0);
+});
