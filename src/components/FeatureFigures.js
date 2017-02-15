@@ -7,7 +7,7 @@ import { filter, propType } from "graphql-anywhere";
 import Button from "./BuildBlocks/Button";
 import Spinner from "./fragments/Spinner";
 
-const FIGURES_PER_PAGE = 9;
+const FIGURES_PER_PAGE = 6;
 
 const FeaturedFigures = (
   {
