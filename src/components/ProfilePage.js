@@ -52,7 +52,10 @@ const ProfilePageQuery = gql`
       bio
       name
       job
-      avatar
+      avatar {
+        url
+        thumb
+      }
       recommendBooks {
         ...FragmentBookListRecommendBooks
       }

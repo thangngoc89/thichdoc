@@ -52,7 +52,7 @@ const BookList = ({ recommendBooks }) => {
                       style={{ float: "left" }}
                       width="8rem"
                       height="auto"
-                      src={node.book.cover}
+                      src={node.book.cover.url}
                       title={node.book.name}
                       alt={node.book.name}
                     />
@@ -93,7 +93,9 @@ BookList.fragments = {
         id
         slug
         author
-        cover
+        cover {
+          url
+        }
         name
       }
     }

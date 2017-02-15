@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
         table.string("nickname");
         table.string("job");
         table.text("bio");
-        table.string("avatar");
+        table.jsonb("avatar");
         table.timestamp("createdAt").defaultTo(knex.fn.now());
         table.timestamp("updatedAt").defaultTo(knex.fn.now());
       }),
@@ -18,7 +18,7 @@ exports.up = function(knex, Promise) {
         table.string("name");
         table.string("author");
         table.string("slug").unique();
-        table.string("cover");
+        table.jsonb("cover");
         table.jsonb("links");
         table.timestamp("createdAt").defaultTo(knex.fn.now());
         table.timestamp("updatedAt").defaultTo(knex.fn.now());

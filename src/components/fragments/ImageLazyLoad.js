@@ -2,14 +2,30 @@ import React from "react";
 import LazyLoad from "react-lazyload";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
+const base64Img = str => "data:image/gif;base64," + str;
 const blankImg = "data:image/gif;base64,R0lGODdhEAAJAIAAAMLCwsLCwiwAAAAAEAAJAAACCoSPqcvtD6OclBUAOw==";
 const ImageLazyLoad = (
-  { src, thumbnail = blankImg, offset, height, ...props, className }
+  {
+    src,
+    thumbnail = blankImg,
+    offset,
+    height,
+    ...props,
+    className,
+    base64 = false
+  }
 ) => (
   <LazyLoad
     offset={200}
     placeholder={
-      <img src={thumbnail} className={className} height={height} {...props} />
+      (
+        <img
+          src={base64 ? base64Img(thumbnail) : thumbnail}
+          className={className}
+          height={height}
+          {...props}
+        />
+      )
     }
     height={height}
     once

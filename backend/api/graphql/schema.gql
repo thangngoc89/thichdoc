@@ -1,5 +1,12 @@
 scalar DateTime
 
+# An image object for serving request
+type Image {
+  url: String!
+  thumb: String
+  imported: Boolean
+}
+
 type User {
   id: String!
   username: String!
@@ -7,16 +14,13 @@ type User {
   nickname: String
   bio: String
   job: String
-  # Direct URL to user's avatar images
-  avatar: String
+  # User avatar image
+  avatar: Image
   # Is this a public figure?
   #isFigure: Boolean!
   # Was this public figure claim their account?
   #isFigureClaimed: Boolean!
-  tikiLink: String
-
   recommendBooks: [RecommendBooks]
-
   createdAt: String
   updatedAt: String
 }
@@ -33,7 +37,7 @@ type Book {
   name: String!
   author: String!
   abstract: String
-  cover: String!
+  cover: Image!
   links: BookLinks!
   recommendBy: [RecommendBy]
   createdAt: DateTime

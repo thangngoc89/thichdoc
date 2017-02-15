@@ -1,10 +1,15 @@
 const data = require("./data/data.json");
+const imagesData = require("./data/images.json");
 const _ = require("lodash");
 const slug = require("speakingurl");
 const dbConfig = require("../knexfile");
 const knex = require("knex")(
   dbConfig[process.env.NODE_ENV ? process.env.NODE_ENV : "development"]
 );
+
+const crypto = require("crypto");
+const md5 = str => crypto.createHash("md5").update(str).digest("hex");
+
 const main = async () => {
   try {
     // Deletes ALL existing entries
@@ -15,7 +20,13 @@ const main = async () => {
     ]);
     // Prepare users data for inserting to db
     const usersData = data.map(user => {
-      const newUser = Object.assign({}, user);
+      const newUser = Object.assign({}, user, {
+        avatar: {
+          url: user.avatar,
+          thumb: imagesData[md5(user.avatar)]
+        }
+      });
+
       delete newUser.books;
       delete newUser.tikiLink;
       return newUser;
@@ -46,7 +57,10 @@ const main = async () => {
           links: JSON.stringify({
             tiki: book.link
           }),
-          cover: book.img
+          cover: {
+            url: book.img,
+            thumb: imagesData[md5(book.img)]
+          }
         };
       })
       .uniqBy(b => b.slug)

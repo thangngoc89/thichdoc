@@ -30,9 +30,10 @@ const CardFigure = ({ user: { name, avatar, job, username } }) => {
           <div className="tc pt4">
             <div className="bg-white card-bottom pb3">
               <ImageLazyLoad
-                src={avatar}
+                src={avatar.url}
                 className="br-100 avatar"
-                thumbnail={"http://localhost:5000/?url=" + avatar}
+                thumbnail={avatar.thumb}
+                base64
                 height="10rem"
                 offset={500}
               />
@@ -52,7 +53,9 @@ CardFigure.fragments = {
     fragment FragmentCardFigureUser on User {
       name
       username
-      avatar
+      avatar {
+        url
+      }
       job
     }
   `
