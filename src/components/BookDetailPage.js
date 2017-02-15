@@ -7,11 +7,15 @@ import withData from "../lib/withData";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 
-const BookDetailPage = ({ data }) => {
-  console.log(data);
+const BookDetailPage = ({ data: { name } }) => {
   return (
     <App title="book details">
-      f
+      <main className="mw8 center ph3">
+        <header className="h3 flex items-center gray">Breadcumbs</header>
+        <section>
+          <h1>{name}</h1>
+        </section>
+      </main>
     </App>
   );
 };
@@ -32,11 +36,14 @@ const BookDetailPageOr404 = (
 };
 
 const BookDetailsPageQuery = gql`
-  query ProfilePage($id: String!) {
+  query BookDetailsPageQuery($id: String!) {
     book: Book(id: $id) {
       id
       slug
-      cover
+      name
+      cover {
+        url
+      }
     }
   }
 `;
