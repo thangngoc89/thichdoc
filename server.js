@@ -43,6 +43,10 @@ app
       const args = [req, res, "/book", req.params];
       return dev ? app.render(...args) : renderAndCache(...args);
     });
+    server.get("/", (req, res) => {
+      const args = [req, res, "/"];
+      return dev ? app.render(...args) : renderAndCache(...args);
+    });
 
     server.get("*", (req, res) => handle(req, res));
 
