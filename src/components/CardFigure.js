@@ -55,6 +55,7 @@ CardFigure.fragments = {
       username
       avatar {
         url
+        thumb
       }
       job
     }
