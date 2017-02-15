@@ -12,7 +12,8 @@ const FIGURES_PER_PAGE = 6;
 const FeaturedFigures = (
   {
     actionLoadMore,
-    data: { loading, allFeaturedFigures }
+    loading,
+    allFeaturedFigures
   }
 ) => {
   if (loading) {
@@ -58,8 +59,10 @@ const allFeaturedFiguresQuery = gql`
 `;
 
 FeaturedFigures.propTypes = {
-  // TODO: Fix propType
-  // data: propType(allFeaturedFiguresQuery).isRequired,
+  allFeaturedFigures: p.shape({
+    pagination: p.object,
+    edges: p.array
+  }).isRequired,
   actionLoadMore: p.func.isRequired
 };
 
@@ -71,7 +74,8 @@ export default graphql(allFeaturedFiguresQuery, {
     }
   },
   props: ({ data }) => ({
-    data,
+    allFeaturedFigures: data.allFeaturedFigures,
+    loading: data.loading,
     actionLoadMore: () => {
       return data.fetchMore({
         variables: {

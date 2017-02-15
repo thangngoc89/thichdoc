@@ -1,6 +1,5 @@
 import React from "react";
 import LazyLoad from "react-lazyload";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 const base64Img = str => "data:image/gif;base64," + str;
 const blankImg = "data:image/gif;base64,R0lGODdhEAAJAIAAAMLCwsLCwiwAAAAAEAAJAAACCoSPqcvtD6OclBUAOw==";
@@ -32,15 +31,7 @@ const ImageLazyLoad = (
       height={height}
       once
     >
-      <ReactCSSTransitionGroup
-        transitionName="fade"
-        transitionAppear={true}
-        transitionAppearTimeout={500}
-        transitionEnter={false}
-        transitionLeave={false}
-      >
-        <img src={src} className={className} height={height} {...props} />
-      </ReactCSSTransitionGroup>
+      <img src={src} className={className} height={height} {...props} />
     </LazyLoad>
   );
 };
