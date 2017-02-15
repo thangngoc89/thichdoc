@@ -17,8 +17,14 @@ RouteUser.propTypes = {
 export { RouteUser };
 
 const RouteBook = ({ id, slug, children }) => {
+  let href = `/book?id=${id}`;
+  let as = `/b/${id}/`;
+  if (slug) {
+    href += `&slug=${slug}`;
+    as += slug;
+  }
   return (
-    <Link href={`/book?id=${id}`} as={`/b/${id}/`}>
+    <Link href={href} as={as}>
       {children}
     </Link>
   );

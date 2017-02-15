@@ -16,12 +16,17 @@ const BookDetailPage = ({ data }) => {
   );
 };
 
-const BookDetailPageOr404 = ({ data: { book, loading } }) => {
+const BookDetailPageOr404 = (
+  { data: { book, loading }, url: { push, query } }
+) => {
   if (loading) {
     return <PageLoading />;
   }
   if (typeof book === "null") {
     return <Page404 />;
+  }
+  if (query.slug !== book.slug && process.browser) {
+    push(`/book?id=${book.id}&slug=${book.slug}`, `/b/${book.id}/${book.slug}`);
   }
   return <BookDetailPage data={book} />;
 };

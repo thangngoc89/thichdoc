@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import d from "../design";
 import Head from "next/head";
 
-export default ({ children, title }) => (
+const App = ({ children, title }) => (
   <div>
     <Head>
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -71,3 +71,5 @@ export default ({ children, title }) => (
     </style>
   </div>
 );
+
+export default App;
