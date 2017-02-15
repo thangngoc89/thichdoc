@@ -13,6 +13,6 @@ http
     const imageDescriptor = new Buffer("2c000000000100010000", "hex");
     const imageData = new Buffer("0202440100", "hex");
     // https://manu.ninja/dominant-colors-for-lazy-loading-images
-    gm(request(query.url)).resize(4, 4).stream().pipe(res);
+    gm(request(query.url)).resize(3, 3).gaussian(3).stream().pipe(res);
   })
   .listen(5000);

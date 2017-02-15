@@ -4,9 +4,16 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 const blankImg = "data:image/gif;base64,R0lGODdhEAAJAIAAAMLCwsLCwiwAAAAAEAAJAAACCoSPqcvtD6OclBUAOw==";
 const ImageLazyLoad = (
-  { src, placeHolderSrc = blankImg, offset, ...props },
+  { src, thumbnail = blankImg, offset, height, ...props, className }
 ) => (
-  <LazyLoad offset={200} placeholder={<img src={placeHolderSrc} {...props} />}>
+  <LazyLoad
+    offset={200}
+    placeholder={
+      <img src={thumbnail} className={className} height={height} {...props} />
+    }
+    height={height}
+    once
+  >
     <ReactCSSTransitionGroup
       transitionName="fade"
       transitionAppear={true}
@@ -14,7 +21,7 @@ const ImageLazyLoad = (
       transitionEnter={false}
       transitionLeave={false}
     >
-      <img src={src} {...props} />
+      <img src={src} className={className} height={height} {...props} />
     </ReactCSSTransitionGroup>
   </LazyLoad>
 );

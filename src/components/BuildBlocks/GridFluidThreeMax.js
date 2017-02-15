@@ -29,15 +29,15 @@ const GridFluidFourMax = ({ list }) => {
           
           @media (min-width: 30em) {
             li {
-              min-width: calc(50% - 1rem);
-              flex: 1 1 calc(50% - 1rem);
+              min-width: calc(50% - 4rem);
+              flex: 1 1 calc(50% - 4rem);
             }
             
           }
           @media (min-width: 60em) {
             li {
-              min-width: calc(33.33% - 2rem);
-              flex: 1 1 calc(33.33% - 2rem);            
+              min-width: calc(33.33% - 3rem);
+              flex: 1 1 calc(33.33% - 3rem);            
             }
           }
           `
