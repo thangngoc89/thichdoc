@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes as p } from "react";
 import gql from "graphql-tag";
 import { propType } from "graphql-anywhere";
 import CardBookVertical from "./CardBookVertical";
@@ -102,7 +102,9 @@ BookList.fragments = {
 };
 
 BookList.propTypes = {
-  recommendBooks: propType(BookList.fragments).isRequired
+  recommendBooks: p.arrayOf(
+    propType(BookList.fragments.recommendBooks)
+  ).isRequired
 };
 
 export default BookList;
